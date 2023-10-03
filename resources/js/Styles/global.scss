@@ -1,0 +1,108 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100;200;300;400;500;600;700&display=swap');
+
+// import custom font from local
+@font-face {
+    font-family: 'baskerville-old-face-regular';
+    src: url('../Assets/Font/BASKVILL.TTF') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+// color
+$primaryColor: #ffffff;
+$secondaryColor: #AFAFDC;
+$tertiaryColor: #012622;
+$fontPrimaryColor: #353535;
+$fontSecondaryColor: #ffffff;
+
+
+$adminPrimaryColor: #ffffff;
+$adminSecondaryColor: #353535;
+// font
+
+$globalBorder: 0.1rem solid rgb(255, 46, 46);
+
+:export {
+    primaryColor: $primaryColor;
+    secondaryColor: $secondaryColor;
+    tertiaryColor: $tertiaryColor;
+}
+
+body {
+    margin-bottom: 0px !important;
+}
+
+:root {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: $primaryColor;
+    color: $fontPrimaryColor;
+    margin-bottom: 0px !important;
+
+    ::selection {
+        background: $secondaryColor;
+        color: $fontSecondaryColor;
+    }
+
+    ::-moz-selection {
+        background: $secondaryColor;
+        color: $fontSecondaryColor;
+    }
+
+
+    .btn {
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.75rem 2rem;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+
+        &:hover {
+            opacity: 0.6;
+        }
+
+        @media screen and (max-width: 768px) {
+            padding: 0.5rem 1rem;
+            border-radius: 0.3rem;
+        }
+    }
+
+    .animate_spin {
+        -webkit-animation: spin 4s linear infinite;
+        -moz-animation: spin 4s linear infinite;
+        animation: spin 4s linear infinite;
+
+        @-moz-keyframes spin {
+            100% {
+                -moz-transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes spin {
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
+
+.AdminColor {
+    background-color: $adminPrimaryColor;
+    color: $adminSecondaryColor;
+}
+
+* {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 400;
+}

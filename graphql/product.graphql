@@ -1,0 +1,18 @@
+type Image{
+    id: ID!
+    title: String!
+    image: String!
+}
+
+type Product{
+    id: ID!
+    title: String!
+    slug: String!
+    description: String!
+    image: [Image!]!
+    price: Int!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+# import ./product.graphql

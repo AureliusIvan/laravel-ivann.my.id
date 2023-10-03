@@ -1,0 +1,32 @@
+@import '../../global.scss';
+
+
+$height: 5.5rem;
+
+.Navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $height;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    // background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    // opacity: 0.8;
+    z-index: 100;
+    justify-content: space-between;
+}
+
+
+.NavbarSpace {
+    height: $height;
+    width: 100%;
+}
+
+.NavbarButton {
+    background-color: $primaryColor;
+}

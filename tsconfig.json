@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "skipLibCheck": true,
+        "allowJs": true,
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "jsx": "react-jsx",
+        "strict": true,
+        "isolatedModules": true,
+        "target": "ESNext",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "paths": {
+            "@/*": ["./resources/js/*"],
+            "@components/*": ["./resources/js/Components/*"],
+            "@styles/*": ["./resources/js/Styles/*"],
+            "@pages/*": ["./resources/js/Pages/*"],
+            "@layouts/*": ["./resources/js/Layouts/*"],
+            "@utils/*": ["./resources/js/Utils/*"],
+            "@hooks/*": ["./resources/js/Hooks/*"],
+            "@types/*": ["./resources/js/Types/*"],
+            "@images/*": ["./resources/js/Assets/*"],
+        }
+    },
+    "include": ["resources/js/**/*.ts", "resources/js/**/*.tsx", "resources/js/**/*.d.ts",],
+}
