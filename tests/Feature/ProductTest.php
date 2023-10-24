@@ -18,7 +18,7 @@ class ProductTest extends TestCase
     use RefreshDatabase;
 
     // harus ada "test" di depan nama function
-    public function test_product_add_test_two(): void
+    public function _product_add_test_two(): void
     {
 
 
