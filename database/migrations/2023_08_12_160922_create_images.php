@@ -13,11 +13,7 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('product_id')->references('id')->on('products');
-            // $table->string('product_id')->nullable();
-            $table->string('title')->default('Image');
-            $table->string('image');
-            $table->boolean('gallery')->default(false);
+            P
             $table->timestamps();
         });
     }

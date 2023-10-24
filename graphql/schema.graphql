@@ -11,14 +11,11 @@ type Product{
     id: ID!
     title: String!
     slug: String!
-    description: String!
-    image: [Image!]!
-    price: Int!
-    created_at: DateTime!
-    updated_at: DateTime!
+        description: String!
+        price: Int!
+        created_at: DateTime!
+        updated_at: DateTime!
 }
-
-
 
 type User {
     id: ID!
@@ -30,10 +27,10 @@ type User {
     updated_at: DateTime!
 }
 
-
 # Queries
 type Query {
-    products: [Product!] @paginate(defaultCount: 10)  
+    # get all products
+    products: [Product!]!
 }
  
 # import ./user.graphql

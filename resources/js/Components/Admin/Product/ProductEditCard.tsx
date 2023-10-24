@@ -7,6 +7,7 @@ import { PageProps } from '@/types';
 import Button from '@/Components/General/Button';
 
 import Input from '@/Components/General/Input';
+import axios from 'axios';
 
 export default function ProductEditCard(ProductData: any) {
     // ✨ form logic
@@ -40,6 +41,7 @@ export default function ProductEditCard(ProductData: any) {
             forceFormData: true,
         })
     }
+
 
 
     // for handling delete of the edit form

@@ -9,7 +9,6 @@ type Product{
     title: String!
     slug: String!
     description: String!
-    image: [Image!]!
     price: Int!
     created_at: DateTime!
     updated_at: DateTime!

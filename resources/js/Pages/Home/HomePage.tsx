@@ -1,5 +1,4 @@
 // styling
-// import style from '../../../css/Home/HomePage.module.scss';
 import Guest from '@/Layouts/GuestLayout';
 import { PageProps } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
@@ -20,7 +19,6 @@ export default function HomePage() {
     const page: any = usePage().props;
     useEffect(() => {
         console.log(page);
-        // console.log("Home Page")
     }, [])
     return (
         <>
