@@ -51,4 +51,3 @@ jobs:
             rsync -avz --exclude='node_modules' --exclude='vendor' ./ ${{ secrets.DEPLOY_DIRECTORY }}
             cd ${{ secrets.DEPLOY_DIRECTORY }}
             bash script.sh
-

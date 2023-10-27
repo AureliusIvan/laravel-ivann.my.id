@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel'
 import type { UploadProps } from 'antd/lib/upload/interface';
 import { PageProps } from '@/types';
 import Button from '@/Components/General/Button';
+import TextEditor from '@/Components/TextEditor/TextEditor';
 
 import Input from '@/Components/General/Input';
 import axios from 'axios';
@@ -35,8 +36,7 @@ export default function ProductEditCard(ProductData: any) {
     // for handling submit of the edit form
     function handleSubmit(e: any) {
         e.preventDefault()
-        console.log(data)
-        console.log("test")
+        console.log("Update Data", data)
         router.post(`/admin/portofolio/${data.id}`, data, {
             forceFormData: true,
         })
@@ -63,6 +63,10 @@ export default function ProductEditCard(ProductData: any) {
         setOpenModal(false)
     }
 
+    useEffect(() => {
+        console.log(ProductData)
+    }, [])
+
     return (
         <>
             <button
@@ -70,7 +74,7 @@ export default function ProductEditCard(ProductData: any) {
                 onClick={handleOpenModal}
             >
                 <img
-                    src={ProductData.image.image}
+                    src={ProductData.image}
                     alt={ProductData.title}
                     className='rounded-xl'
                 />
@@ -88,7 +92,9 @@ export default function ProductEditCard(ProductData: any) {
             >
                 <form
                     onSubmit={handleSubmit}
-                    className={`h-full min-h-fit w-full relative bg-white overflow-scroll sm:rounded-lg p-boxMd flex flex-col 
+                    className={`
+                    xl:w-[50rem]
+                    h-full min-h-fit w-full relative bg-white overflow-scroll sm:rounded-lg p-boxMd flex flex-col 
                     gap-[1rem] shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] 
                 `}
                     onClick={(e) => e.stopPropagation()}
@@ -132,11 +138,22 @@ export default function ProductEditCard(ProductData: any) {
                         >
                             Deskripsi
                         </InputLabel>
-                        <Input
+                        {/* <Input
                             defaultValue={data.description}
                             onChange={handleChange}
                             id='description'
                             placeholder='Product description'
+                        /> */}
+                        <TextEditor
+                            data={data.description}
+                            setContent={
+                                (value: any) => {
+                                    setData((prevData: any) => ({
+                                        ...prevData,
+                                        description: value.content,
+                                    }))
+                                }
+                            }
                         />
                     </div>
                     <div>

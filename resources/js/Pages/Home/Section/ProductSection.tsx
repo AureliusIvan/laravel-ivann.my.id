@@ -13,7 +13,7 @@ export default function ProductSection() {
     return (
         <SectionContainer>
             <div
-                className='rounded-[0.75rem] bg-[#F9F5F2]
+                className='bg-[#F9F5F2]
                 bg-opacity-10
                 flex p-[1rem] md:p-[2rem]
                 flex-col'
@@ -23,7 +23,7 @@ export default function ProductSection() {
                 >
                     <h1
                         className='text-[1.5rem] md:text-[2rem] font-[700] text-left w-full
-                        text-secondary 
+                        text-white
                         '
                     >
                         Discover my PortoFolio & Project

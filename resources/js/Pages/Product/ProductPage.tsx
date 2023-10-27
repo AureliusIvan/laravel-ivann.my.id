@@ -9,26 +9,34 @@ import { useEffect } from 'react'
 
 export default function ProductPage() {
     const ProductData: any = usePage().props.ProductData
-
+    const pageInfo = usePage().props
     useEffect(() => {
+        console.log(pageInfo)
         console.log(ProductData)
     }, [])
     return (
         <>
             <Head>
                 <title>
-                    Portofolio
+                    Posts
                 </title>
-                <meta name="description" content="Product" />
-                <meta name="keywords" content="Product" />
+                <meta name="description" content="Posts" />
+                <meta name="keywords" content="Posts" />
             </Head>
             <Guest>
                 <SectionContainer
                     className='w-full h-fit'
                 >
                     <Header
-                        title='Project & Portofolio'
+                        title='My Posts'
                     />
+                    {/* <div>
+                        <input
+                            className='
+                            text-white
+                            w-full h-[3rem] rounded-[0.75rem] border-[0.1rem] border-solid border-white bg-primary'
+                            type="text" placeholder="Search.." name="search" />
+                    </div> */}
                     <div
                         className='
                         h-fit
@@ -48,7 +56,7 @@ export default function ProductPage() {
                             })
                         }
                     </div>
-                    <div
+                    {/* <div
                         className=' flex-row justify-center items-center w-full flex-wrap hidden text-primaryBlack'
                     >
                         {ProductData.links ? ProductData.links.map((link: any) => {
@@ -68,7 +76,7 @@ export default function ProductPage() {
                                 No data here yet
                             </div>
                         }
-                    </div>
+                    </div> */}
                     {/* <CollaborateCard /> */}
                 </SectionContainer>
             </Guest>

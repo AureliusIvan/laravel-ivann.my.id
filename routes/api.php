@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\ImageController;
 use App\Jobs\SendEmailJob;
 use App\Mail\SendMail;
 use App\Models\Webconfig;
@@ -55,5 +56,9 @@ Route::get('download-cv', function () {
     }
 });
 
+
+
+// Upload Image
+Route::post('uploadimage', [ImageController::class, 'uploadImage']);
 
 Route::get('test', [TestingController::class, "index"]);

@@ -18,9 +18,9 @@ export default {
             },
         },
         colors: {
-            ...defaultTheme.colors, 
+            ...defaultTheme.colors,
             primary: "#000000",
-            secondary: "#AFAFDC",
+            secondary: "#b091ff",
             accent: "#012622",
             primaryWhite: "#F9F5F2",
             white: "#FFFFFF",

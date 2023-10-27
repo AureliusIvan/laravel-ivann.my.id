@@ -36,7 +36,6 @@ export default function GalleryPage({ images }: any) {
     )
 }
 
-
 // components for this page
 const EditGalleryCard = (image: any) => {
     return (
@@ -45,11 +44,9 @@ const EditGalleryCard = (image: any) => {
             bg-gray-200 rounded-lg shadow-xl p-boxS m-[2rem]'
         >
             <div>
-                <img src={image.image} alt={image.title}
+                <img src={image.url} alt={image.title}
                     className='w-1/2 h-1/2'
                 />
-                <h1>{image.title}</h1>
-                <h2>{image.description}</h2>
             </div>
         </div>
     )

@@ -53,7 +53,7 @@ export default function HeroSection() {
                         href='/portofolio'
                         className='bg-secondary font-bold gap-[0.5rem]'
                     >
-                        My Portofolio
+                        Post & Portofolio
                         <Porto />
                     </Button>
 

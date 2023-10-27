@@ -7,7 +7,7 @@ export default function ProductCard({ ProductData, width, height, rounded }: { P
 
     useEffect(() => {
         console.log(ProductData);
-        console.log('img : ', ProductData.image[0].image);
+        console.log('img : ', ProductData.image);
     }, [])
     return (
         <>
@@ -22,8 +22,8 @@ export default function ProductCard({ ProductData, width, height, rounded }: { P
             >
                 {ProductData.image && (
                     <img
-                        src={ProductData.image[0].image}
-                        alt={ProductData.image[0].title}
+                        src={ProductData.image}
+                        alt={ProductData.title}
                         className='ProductCard__image'
                     />
                 )}

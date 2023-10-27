@@ -10,6 +10,14 @@ use Throwable;
 class CustomException extends Exception
 {
 
+
+    public function render($request)
+    {
+        return response()->json([
+            'message' => $this->getMessage(),
+        ], 400);
+    }
+    
     public static function notAvailable(): self
     {
         return new static(
