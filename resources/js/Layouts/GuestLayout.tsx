@@ -19,11 +19,12 @@ export default function Guest({ header, footer = true, children }: PropsWithChil
                 <meta name="description" content="" />
                 <link rel="icon" href={companyData?.company_logo} />
             </Head>
-            <SectionContainer
+
+            <div
                 className="
-                    flex justify-between  h-[4.5rem] sm:h-[6.25rem]
+                    flex justify-between  h-[4.5rem] sm:h-[4.25rem]
                     fixed top-0 left-0 right-0 z-50
-                    bg-primary
+                    bg-primary px-boxMd
                     border-b-[0.01rem] border-solid border-transparentWhite"
             >
                 {/* Logo */}
@@ -49,8 +50,9 @@ export default function Guest({ header, footer = true, children }: PropsWithChil
                         target='_blank'
                         className='
                         border-[0.1rem] border-secondary
-                        bg-none text-[#F9F5F2] font-[600] px-[2rem] py-[0.5rem] rounded-[0.75rem]
-                                hover:bg-secondary transition duration-300 ease-in-out text-[1.25rem]'
+                        bg-none text-[#F9F5F2] font-[600] px-[1rem] py-[0.2rem] rounded-[0.75rem]
+                                hover:bg-secondary transition duration-300 ease-in-out text-[1.25rem]
+                                '
                     >
                         Contact
                     </a>
@@ -82,7 +84,7 @@ export default function Guest({ header, footer = true, children }: PropsWithChil
                         </svg>
                     </button>
                 </div>
-                <div className={(showingNavigationDropdown ? 'translate-y-0 opacity-[100%]' : 'translate-y-[-200%] opacity-[0%]') + 'md:hidden fixed top-[4.3rem] sm:top-[6.25rem] left-0 right-0 pb-[1rem] px-[1rem] bg-primary w-full z-50 flex flex-col items-center text-center isolate gap-[0.5rem] transform-gpu transition-all duration-500 ease-in-out origin-top'}>
+                <div className={(showingNavigationDropdown ? 'translate-y-0 opacity-[100%]' : 'translate-y-[-200%] opacity-[0%]') + 'md:hidden fixed top-[4.3rem] sm:top-[4.25rem] left-0 right-0 pb-[1rem] px-[1rem] bg-primary w-full z-50 flex flex-col items-center text-center isolate gap-[0.5rem] transform-gpu transition-all duration-500 ease-in-out origin-top'}>
                     {
                         Route.map((item, index) => (
                             <NavLink
@@ -102,10 +104,10 @@ export default function Guest({ header, footer = true, children }: PropsWithChil
                         Contact
                     </a>
                 </div>
-            </SectionContainer>
+            </div>
             {/* safe zone */}
             <div
-                className='opacity-0 h-[4.5rem] sm:h-[6.25rem] w-full'
+                className='opacity-0 h-[4.5rem] sm:h-[4.25rem] w-full'
             />
             <main
                 className='bg-primary'

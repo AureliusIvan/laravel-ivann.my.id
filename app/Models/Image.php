@@ -15,17 +15,17 @@ class Image extends Model
 
     protected $fillable = [
         'title',
-        'product_id',
-        'image',
+        // 'product_id',
+        'url',
     ];
 
 
-    public function product(): BelongsTo
-    {
-        return $this->belongsTo(Product::class);
-    }
+    // public function product(): BelongsTo
+    // {
+    //     return $this->belongsTo(Product::class);
+    // }
     
-    protected function Image(): Attribute
+    protected function Url(): Attribute
     {
         return Attribute::make(
             // convert value to storage link

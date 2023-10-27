@@ -10,7 +10,7 @@ php artisan key:generate
 <!-- migrate data -->
 php artisan migrate
 <!-- seeding data -->
-php artisan migrate:fresh --seed --seeder=CallAllSeeder
+    php artisan migrate:fresh --seed --seeder=CallAllSeeder
 <!-- run -->
 php artisan serve (in terminal 1)
 yarn start (in terminal 2)

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug');
             $table->text('description');
             $table->string('category')->nullable();
-            // $table->integer('image_id')->references('id')->on('images');
+            $table->string('image')->nullable();
             $table->integer('price')->nullable();
             $table->string('link')->nullable();
             $table->timestamp('project_date')->nullable();

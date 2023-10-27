@@ -138,20 +138,17 @@
             font-weight: 600;
         }
 
-        code {
-            background-color: rgba(#616161, 0.1);
-            color: #616161;
-        }
+
 
         pre {
-            background: #0D0D0D;
+            background: #3c3c3c;
             color: #FFF;
             font-family: 'JetBrainsMono', monospace;
             padding: 0.75rem 1rem;
             border-radius: 0.5rem;
 
             code {
-                color: inherit;
+                // color: inherit;
                 padding: 0;
                 background: none;
                 font-size: 0.8rem;
@@ -172,7 +169,5 @@
             padding-left: 1rem;
             border-left: 2px solid rgba(#0D0D0D, 0.1);
         }
-
-
     }
 }
