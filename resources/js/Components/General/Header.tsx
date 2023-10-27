@@ -2,34 +2,39 @@ import React from 'react'
 
 type Props = {
     title: string,
-    image?: string
+    image?: string,
+    createdAt?: string
 }
 
-export default function Header({ title, image }: Props) {
+export default function Header({ title, image, createdAt }: Props) {
     return (
-        <div>
-            <div
-                className='Heading
-                    flex flex-col items-center justify-center
+
+        <div
+            className='flex flex-col items-center justify-center
                     w-full h-[7.5rem] 
                     md:h-[10rem] md:w-full
                     relative isolate overflow-hidden 
                     '
+        >
+            <div
+                className='w-fit flex flex-col items-center justify-center   mb-[1rem]'
             >
-                <div
-                    className='w-fit flex flex-col items-center justify-center gap-[0.7rem]'
+                <h1
+                    className='text-[#FFFFFF] text-[1.5rem] md:text-[3.75rem] font-[700] z-10 w-full text-center'
                 >
-                    <h1
-                        className='text-[#FFFFFF] text-[1.5rem] md:text-[3.75rem] font-[700] z-10 w-full text-center'
-                    >
-                        {title}
-                    </h1>
+                    {title}
+                </h1>
 
-                    <div
-                        className='w-[70%] max-w-[7rem] h-[0.2rem] rounded-sm bg-white'
-                    />
-                </div>
+                <h2
+                    className='font-poppins text-center text-[1rem] 
+                                font-[400] text-[rgba(255,255,255,0.7)]'
+                >
+                    {createdAt}
+                </h2>
             </div>
+            <div
+                className='w-[70%] max-w-[8rem] h-[0.2rem] rounded-sm bg-white'
+            />
         </div>
     )
 }

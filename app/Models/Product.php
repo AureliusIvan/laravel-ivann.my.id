@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use App\Models\Image;
+use GuzzleHttp\Handler\Proxy;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
@@ -37,22 +38,41 @@ class Product extends Model
 
     public $timestamps = true;
 
-    // protected static function booted()
-    // {
-    //     static::creating(function ($product) {
-    //         // $product->slug = Str::slug($product->title);
-    //         try {
-    //             $product->id = Uuid::uuid4()->toString();
-    //         } catch (\Exception $e) {
-    //             error_log($e);
-    //         }
-    //     });
-    // }
 
-    public function images(): HasMany
+    protected function Image(): Attribute
     {
-        return $this->hasMany(Image::class);
+        return Attribute::make(
+            // convert value to storage link
+            get: fn ($value) => Storage::url($value),
+            // set: fn ($value) => Str::slug($value , '.'),
+        );
     }
+
+    protected function Id(): Attribute
+    {
+        return Attribute::make(
+            // convert value to storage link
+            get: fn ($value) => $value,
+            // set: fn ($value) => Str::slug($value , '.'),
+        );
+    }
+
+    protected static function booted()
+    {
+        static::creating(function ($product) {
+            // $product->slug = Str::slug($product->title);
+            try {
+                $product->id = Uuid::uuid4()->toString();
+            } catch (\Exception $e) {
+                error_log($e);
+            }
+        });
+    }
+
+    // public function images(): HasMany
+    // {
+    //     return $this->hasMany(Image::class);
+    // }
 
     public function Title(): Attribute
     {
@@ -80,9 +100,6 @@ class Product extends Model
                 return $products;
             }
             $products = Product::all();
-            foreach ($products as $item) {
-                $item->image = Image::where('product_id', $item->id)->get();
-            }
             Cache::put('products', $products, 10000);
             return $products;
         } catch (\Exception $e) {
@@ -92,18 +109,6 @@ class Product extends Model
     public function getAllProductWithCache()
     {
         $productData = Product::all()->where('image_id', null);
-        // $productData = Product::all();
-        // $Data = Image::with('product')->get();
-        // dd($productData[0]->image);
-        // $images = Image::all()->where('related_id', null);
-        // foreach ($productData as $key => $value) {
-        //     $images[$value->id] = $value->image;
-        // }
-        // get all product and get all image that have 'related_id' column = 'id' of product
-        // $productData = Product::with('image')->get();
-        // dd($productData);
-        // $productData = Product::with('images')->get();
-        // $productData = Product::with('images')->get();
         return $productData;
     }
 
@@ -113,35 +118,51 @@ class Product extends Model
     {
         try {
             DB::beginTransaction();
-            $product = new Product();
-            $id = Uuid::uuid4()->toString();
-
-            if (!$request->images) {
+            if (!$request->image) {
                 throw CustomException::Custom('Image is required');
             }
-            foreach ($request->images as $image) {
-                $image_file = $image[0];
-                $image_name = imgExtention($image_file);
+
+            // foreach ($request->images as $image) {
+            //     $image_file = $image[0];
+            //     $image_name = imgExtention($image_file);
+            //     Storage::putFileAs(
+            //         'public',
+            //         $image_file,
+            //         $image_name
+            //     );
+            //     $image_file = Image::create([
+            //         'product_id' => $id,
+            //         'image' => $image_name,
+            //     ]);
+            //     // dd($product->id);
+            //     $image_file->save();
+            // }
+            // $product->fill($request->only([
+            //     'title',
+            //     'slug',
+            //     'description',
+            //     'price',
+            //     'image' => $image_name,
+            // ]));
+            // $product->id = $id;
+            // save image to storage
+
+            $image_name = imgExtention($request->image);
+            $path =
                 Storage::putFileAs(
                     'public',
-                    $image_file,
+                    $request->image,
                     $image_name
                 );
-                $image_file = Image::create([
-                    'product_id' => $id,
-                    'image' => $image_name,
-                ]);
-                // dd($product->id);
-                $image_file->save();
-            }
-            $product->fill($request->only([
-                'title',
-                'slug',
-                'description',
-                'price',
-            ]));
-            $product->id = $id;
-            $product->save();
+
+            $product = Product::create([
+                // 'id' => Uuid::uuid4()->toString(),
+                'title' => $request->title,
+                'slug' => $request->slug,
+                'description' => $request->description,
+                'price' => $request->price,
+                'image' => $path,
+            ]);
             DB::commit();
         } catch (CustomException $e) {
             DB::rollBack();
@@ -152,32 +173,32 @@ class Product extends Model
 
     public function UpdateProduct($request)
     {
+        // dd($request->id);
         try {
-            DB::beginTransaction();
-            $product = $this->find($request->id);
+            // DB::beginTransaction();
+            $product = Product::find($request->id);
+            // dd($product);
             $image_name = null;
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
-                // $image_name = Str::slug((pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME) . '-' . time() . "." . $image->getClientOriginalExtension()), '.');
                 $image_name = imgExtention($image);
                 Storage::putFileAs(
                     'public',
                     $request->file('image'),
                     $image_name
                 );
-                $image = Image::create([
-                    'image' => $image_name,
-                ]);
-                $product->image_id = $image->id;
+                // $product->image_id = $image->id;
+                $product->title = $request->title;
+                $product->slug = $request->slug;
+                $product->description = $request->description;
+                $product->price = $request->price;
+                $product->image = $image_name;
+            } else {
+                $product->title = $request->title;
+                $product->slug = $request->slug;
+                $product->description = $request->description;
+                $product->price = $request->price;
             }
-
-            $product->fill($request->only([
-                'title',
-                'slug',
-                'description',
-                'price',
-            ]));
-            $product->save();
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();

@@ -52,7 +52,7 @@ export default function ProductAddPage(ProductData: any) {
         description: ProductData.description,
         slug: ProductData.slug,
         price: 0,
-        images: [],
+        image: null
     })
 
     function handleChange(e: any) {
@@ -68,10 +68,7 @@ export default function ProductAddPage(ProductData: any) {
         try {
             setData((prevData: any) => ({
                 ...prevData,
-                images: [
-                    ...prevData.images,
-                    e.target.files
-                ],
+                image: e.target.files[0]
             }));
         } catch (error) {
             console.log(error)
@@ -125,6 +122,11 @@ export default function ProductAddPage(ProductData: any) {
                             placeholder='title'
                             onChange={handleChange}
                             id='title'
+                            onClick={
+                                e => {
+                                    e.preventDefault()
+                                    console.log('clicked')
+                                }}
                         />
                     </div>
                     <div>
@@ -164,8 +166,9 @@ export default function ProductAddPage(ProductData: any) {
                         />
                     </div>
                     <div>
-                        <label
-                            className="block mb-2 text-sm font-medium text-primaryBlack">Upload file</label>
+                        <InputLabel
+                            value='Post Tumbnail'
+                            className="block mb-2 text-sm font-medium text-primaryBlack" />
                         <input
                             className="block w-full text-sm text-secondary border border-gray-300 rounded-lg cursor-pointer bg-gray-50  focus:outline-none" aria-describedby="file_input_help" id="file_input"
                             type="file"
@@ -180,29 +183,28 @@ export default function ProductAddPage(ProductData: any) {
                             flex flex-wrap gap-[1rem] mt-2'
                         >
                             {
-                                data.images?.map((image: any, i: any) => (
-                                    <div
-                                        className='flex flex-col gap-[1rem] h-max'
+                                data.image &&
+                                <div
+                                    className='flex flex-col gap-[1rem] h-max'
+                                >
+                                    <img
+                                        className='w-full max-w-sm h-1/4'
+                                        src={URL.createObjectURL(data.image)}
+                                        alt={data.image} />
+                                    {/* Button for deleting image */}
+                                    <button
+                                        className='btn bg-primaryRed text-white font-[700]'
+                                    // onClick={() => {
+                                    //     setData((prevData: any) => ({
+                                    //         ...prevData,
+                                    //         images: prevData.images.filter((_: any, index: any) => index !== i)
+                                    //     }))
+                                    // }}
                                     >
-                                        <img
-                                            key={i}
-                                            className='w-full max-w-sm h-1/4'
-                                            src={URL.createObjectURL(image[0])}
-                                            alt={image[0]} />
-                                        {/* Button for deleting image */}
-                                        <button
-                                            className='btn bg-primaryRed text-white font-[700]'
-                                            onClick={() => {
-                                                setData((prevData: any) => ({
-                                                    ...prevData,
-                                                    images: prevData.images.filter((_: any, index: any) => index !== i)
-                                                }))
-                                            }}
-                                        >
-                                            Remove
-                                        </button>
-                                    </div>
-                                ))
+                                        Remove
+                                    </button>
+                                </div>
+
                             }
                         </div>
                     </div>
@@ -210,7 +212,6 @@ export default function ProductAddPage(ProductData: any) {
                         className='fixed bottom-0 left-0'
                         type="submit"
                         onClick={handleSubmit}
-
                     >
                         {
                             progress &&

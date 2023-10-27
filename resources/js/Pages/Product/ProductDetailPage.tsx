@@ -16,7 +16,7 @@ import CopyIcon from '@/Assets/Icon/CopyIcon.svg'
 // import Modal from '@/Components/Modal';
 
 // import "@/Styles/ContentPreview.scss"
-import "@/Styles/TextEditor.scss"
+import "@/Styles/ContentPreview.scss"
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Image from '@tiptap/extension-image';
@@ -31,18 +31,6 @@ interface Props {
     html: string;
 }
 
-// const Preview: React.FC<Props> = ({ html }) => {
-//     useEffect(() => {
-//         console.log(html)
-//     }, [html])
-//     return (
-//         <div
-//             className='ContentPreview'
-//             dangerouslySetInnerHTML={{
-//                 __html: html
-//             }} />
-//     );
-// };
 
 const Preview = ({ html }: any) => {
     const editor = useEditor({
@@ -52,10 +40,18 @@ const Preview = ({ html }: any) => {
             StarterKit,
             Image,
             Highlight,
-            TextAlign
+            TextAlign,
+            Image.configure({
+                inline: true,
+                allowBase64: true,
+            }),
 
         ]
     })
+
+    useEffect(() => {
+        console.log(html)
+    }, [html])
     return (
         <div
             className='TextEditor'
@@ -79,9 +75,9 @@ export default function ProductDetailPage() {
 
     // Debugger
     useEffect(() => {
+        console.log(ProductData)
+        // console.log(RecommendedProduct)
     }, [])
-    // 
-
 
     const [api, contextHolder] = notification.useNotification();
 
@@ -100,95 +96,68 @@ export default function ProductDetailPage() {
             </Head>
             {contextHolder} {/*for notification*/}
             <Guest>
-                <SectionContainer>
-                    <div className="flex flex-col md:flex-row justify-start items-start min-h-screen w-full p-boxS
-                    ">
-                        <div className="text-secondary flex flex-col gap-[1rem] w-full">
-                            <div
-                                className='flex w-full'
-                            >
-                                <button
-                                    className=' text-white flex flex-row justify-center items-center 
+                <div
+                    className='flex
+                    justify-center items-center w-full h-full'
+                >
+                    <div
+                        className='xl:w-[50rem]'
+                    >
+                        <div className="flex flex-col md:flex-row justify-start 
+                                        items-start min-h-screen p-boxS">
+                            <div className="text-secondary flex flex-col gap-[1rem] w-full">
+                                <div className='flex w-full'>
+                                    <button
+                                        className=' text-white flex flex-row justify-center items-center 
                                     gap-[0.1rem]  hover:opacity-50'
-                                    onClick={() => window.history.back()}
-                                >
-                                    <img
-                                        className='w-[1.7rem] h-[1.7rem]'
-                                        src={BackIcon} alt="" />
-                                    <div
-                                        className='font-poppins text-[1.5rem] font-[400]'
+                                        onClick={() => window.history.back()}
                                     >
-                                        Back
-                                    </div>
-                                </button>
-                            </div>
-                            <Header
-                                title={ProductData.title}
-                            />
-                            <h2
-                                className='font-poppins text-center text-[1rem] 
-                                font-[400]  text-secondary'
-                            >
-                                {ProductData.created_at}
-                            </h2>
-                            <Preview
-                                html={description}
-                            />
-                            {ProductData.image.map((image: any) => (
-                                <img
-                                    className='w-full 
-                                    h-[20rem] 
-                                    object-cover 
-                                    object-center'
-                                    src={image.image} alt="" />
-                            ))}
-                            <div
-                                className='flex gap-2'>
-                                {/* Share Button */}
-                                <ShareButton />
-                                <button
-                                    className='btn bg-secondary text-primaryBlack font-[700]
+                                        <img
+                                            className='w-[1.7rem] h-[1.7rem]'
+                                            src={BackIcon} alt="" />
+                                        <div
+                                            className='font-poppins text-[1.5rem] font-[400]'
+                                        >
+                                            Back
+                                        </div>
+                                    </button>
+                                </div>
+                                <Header
+                                    title={ProductData.title}
+
+                                    createdAt={ProductData.created_at}
+                                />
+
+                                <Preview
+                                    html={description}
+                                />
+                                <div
+                                    className='flex gap-2'>
+                                    {/* Share Button */}
+                                    <ShareButton />
+                                    <button
+                                        className='btn bg-secondary text-primaryBlack font-[700]
                                     flex gap-[0.5rem]
                                     justify-center items-center'
-                                    onClick={() => {
-                                        navigator.clipboard.writeText(window.location.href);
-                                        openNotificationWithIcon('success')
-                                    }}
-                                >
-                                    Copy Link
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(window.location.href);
+                                            openNotificationWithIcon('success')
+                                        }}
+                                    >
+                                        Copy Link
 
-                                    <img className='
+                                        <img className='
                                         h-[1.5rem]
                                         aspect-square'
-                                        src={CopyIcon} alt="" />
+                                            src={CopyIcon} alt="" />
 
-                                </button>
+                                    </button>
+                                </div>
+
                             </div>
-
                         </div>
                     </div>
-                    <div className="md:w-1/3
-                        p-[1rem] md:p-[2rem] rounded-[0.75rem] 
-                        ">
-                        <h2
-                            className='
-                            font-poppins
-                            text-[1.5rem] font-semibold my-[1rem] text-secondary'
-                        >
-                            More project & portofolio from me
-                        </h2>
-                        <div className="grid grid-cols-1 gap-4">
-                            {/* {RecommendedProduct?.map((product: any) => (
-                                <ProductCard
-                                    key={product.id}
-                                    ProductData={product}
-                                    width='100%'
-                                    rounded={true}
-                                />
-                            ))} */}
-                        </div>
-                    </div>
-                </SectionContainer>
+                </div>
             </Guest >
         </>
     )
@@ -206,7 +175,7 @@ function ShareButton() {
             Share
             <img
                 className='h-[1.5rem] aspect-square'
-                
+
                 src={ShareIcon} alt=""
             />
         </button></>)

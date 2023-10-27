@@ -7,13 +7,20 @@ export default function ApplicationLogo(props: SVGAttributes<SVGElement>) {
     //     console.log(page);
     // }, []);
     return (
-        <img
-            className={`
+        <>
+            {/* <img
+                className={`
                 aspect-square
                 p-2
                 ${props.className}
             `}
-            src={page?.companyData.company_logo}
-        />
+                src={page?.companyData.company_logo}
+            /> */}
+            <p
+                className='text-2xl font-bold text-white font-poppins'
+            >
+                Ivan
+            </p>
+        </>
     );
 }

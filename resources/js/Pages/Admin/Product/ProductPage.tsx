@@ -10,9 +10,9 @@ import SectionContainer from '@/Components/General/SectionContainer'
 // import ProductEditCard from '@/Components/Admin/Product/ProductEditCard'
 
 export default function ProductPage({ auth, ProductData }: PageProps<{ ProductData: any }>) {
-    // useEffect(() => {
-    //     console.log(ProductData)
-    // }, [])
+    useEffect(() => {
+        console.log(ProductData)
+    }, [])
 
     return (
         <AdminLayout>
@@ -54,8 +54,9 @@ export default function ProductPage({ auth, ProductData }: PageProps<{ ProductDa
                     Add Product +
                 </Link>
                 <div
-                    className='justify-center items-center gap-3
-                        grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+                    className='justify-center gap-3
+                        grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
+                        '
                 >
                     {
                         ProductData.length > 0 ?

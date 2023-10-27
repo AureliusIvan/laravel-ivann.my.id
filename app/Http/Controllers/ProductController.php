@@ -17,10 +17,6 @@ class ProductController extends Controller
 
     public function __invoke()
     {
-        // $products = $product->all();
-        // foreach ($products as $item) {
-        //     $item->image = Image::where('product_id', $item->id)->get();
-        // }
         return inertia('Product/ProductPage', [
             'ProductData' => fn () => Product::getAllProduct(),
         ]);
@@ -29,7 +25,7 @@ class ProductController extends Controller
     public function ProductDetail($slug)
     {
         $ProductData = Product::where('slug', $slug)->first();
-        $ProductData->image = Image::where('product_id', $ProductData->id)->get();
+        // $ProductData->image = Image::where('product_id', $ProductData->id)->get();
         // $RecommendedProduct = Product::
         return inertia('Product/ProductDetailPage', [
             'ProductData' => $ProductData,
@@ -38,30 +34,16 @@ class ProductController extends Controller
     }
 
     // ADMIN FUNCTION
-    public function AdminPage(Product $product)
+    public function AdminPage()
     {
-
-        // $ProductData = $product->getAllProductWithCache();
-
-        $products = $product->all();
-        foreach ($products as $item) {
-            $item->image = Image::where('product_id', $item->id)->get();
-        }
+        $product = Product::all();
         return inertia('Admin/Product/ProductPage', [
-            'ProductData' => $products,
+            'ProductData' => $product,
         ]);
     }
 
     public function AddProduct(Request $request, Product $product)
     {
-
-        // dd($request->all());
-        // $request->validate([
-        //     'title' => 'required',
-        //     'description' => 'required',
-        //     'price' => 'required',
-        //     'image' => 'required',
-        // ]);
         $product->AddProduct($request);
         Cache::forget('products');
         return redirect()->back();
@@ -70,7 +52,40 @@ class ProductController extends Controller
     public function UpdateProduct(Request $request, Product $product, $id)
     {
         Cache::forget('products');
-        $product->UpdateProduct($request);
+        // dd($request);
+        try {
+            DB::beginTransaction();
+            $product = Product::where('id', $request->id)->first();
+            $image_name = null;
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
+                $image_name = imgExtention($image);
+                Storage::putFileAs(
+                    'public',
+                    $request->file('image'),
+                    $image_name
+                );
+                $product->fill($request->only([
+                    'title',
+                    'slug',
+                    'description',
+                    'price',
+                ]));
+                $product->image = $image_name;
+            } else {
+                $product->fill($request->only([
+                    'title',
+                    'slug',
+                    'description',
+                    'price',
+                ]));
+            }
+            $product->save();
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            dd($e);
+        }
         return redirect()->back();
     }
 
