@@ -41,9 +41,10 @@ export default function ProductPage() {
                         className='
                         h-fit
                         pb-[4rem] md:p-[2rem]
-                        grid grid-cols-1 justify-center items-center gap-2
-                        w-full md:grid-cols-2 md:gap-4 
-                        lg:grid-cols-3 lg:gap-4 pt-[2rem]'>
+                        flex flex-wrap flex-col
+                        justify-center items-center gap-2
+                        w-full md:gap-4 
+                        lg:gap-4 pt-[2rem]'>
                         {
                             ProductData?.map((product: any) => {
                                 return (
