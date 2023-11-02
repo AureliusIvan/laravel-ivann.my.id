@@ -56,7 +56,8 @@ const Preview = ({ html }: any) => {
         <div
             className='TextEditor'
         >
-            <div>
+            <div
+            >
                 <EditorContent
                     editor={editor}
                     content={html}

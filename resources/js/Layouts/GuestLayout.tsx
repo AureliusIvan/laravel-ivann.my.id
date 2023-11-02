@@ -136,29 +136,9 @@ const Route = [
         path: '/',
         route: 'home'
     },
-    // {
-    //     name: 'About',
-    //     path: '/about',
-    //     route: 'about'
-    // },
-    // {
-    //     name: 'Services',
-    //     path: '/services',
-    //     route: 'services'
-    // },
     {
-        name: 'Portofolio',
+        name: 'Post',
         path: '/product',
         route: 'product'
-    },
-    // {
-    //     name: 'Gallery',
-    //     path: '/gallery',
-    //     route: 'gallery'
-    // }
-    // {
-    //     name: 'Pricing',
-    //     path: '/pricing',
-    //     route: 'pricing'
-    // },
+    }
 ]
