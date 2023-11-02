@@ -8,6 +8,7 @@ import "@/Styles/TextEditor.scss"
 import HorizontalRule from '@tiptap/extension-horizontal-rule';
 import { createRoot } from 'react-dom/client';
 import axios from 'axios';
+import { router } from '@inertiajs/react';
 // import { TextEditorFeat } from './Feature';
 
 const Button = ({ func, className, children, disabled, active }: {
@@ -212,7 +213,7 @@ const MenuBar = ({ editor }: any) => {
         <div className='menu-bar'>
             {/* Modal Gallery */}
             <Button>
-                Test    
+                Test
             </Button>
             {
                 TextEditorFeat.map((item, index) => (
@@ -246,7 +247,22 @@ export default ({ setData, data, setContent }: any) => {
     function uploadImage(file: any) {
         const data = new FormData();
         data.append('image', file);
-        return axios.post('/api/uploadimage', data);
+        return axios.post('/api/uploadimage', data)
+            .then((res) => {
+                return res
+            })
+        // .catch((err) => {
+        //     console.log(err)
+        //     // upload using inertia useRoute
+        //     // router.post('/api/uploadimage', data, {
+        //     //     forceFormData: true,
+        //     //     onSuccess: (response: any) => {
+        //     //         console.log(response)
+        //     //         return response
+        //     //     }
+        //     // })
+        // })
+
     };
     const editor = useEditor({
         onUpdate: ({ editor }: any) => {
@@ -263,15 +279,63 @@ export default ({ setData, data, setContent }: any) => {
             StarterKit,
             TipTapImage.configure({
                 inline: true,
-                allowBase64: true,
+                // allowBase64: true,
             }),
+
             TextAlign.configure({
                 types: ["heading", "paragraph"],
             }),
             Highlight,
-
+            // Link.configure({
+            //     openOnClick: false,
+            // }),
         ],
         editorProps: {
+            handlePaste: function (view, event, slice) {
+                const items = Array.from(event.clipboardData?.items || []);
+                for (const item of items) {
+                    if (item.type.indexOf("image") === 0) {
+                        let file = item.getAsFile();
+                        if (!file) {
+                            return false;
+                        }
+                        let filesize: number = parseFloat(((file.size / 1024) / 1024).toFixed(4));
+                        if (filesize < 10) { // check image under 10MB
+                            let img = new Image();
+                            img.onload = function () {
+                                if ((this as HTMLImageElement).width > 5000 || (this as HTMLImageElement).height > 5000) {
+                                    window.alert("Your images need to be less than 5000 pixels in height and width."); // display alert
+                                } else {
+                                    uploadImage(file).then(function (response) {
+                                        alert("Image uploaded successfully.");
+                                        // insert the image into the editor
+                                        view.dispatch(view.state.tr.replaceSelectionWith(view.state.schema.nodes.image.create({
+                                            src: response.data.data.url,
+                                            // alt: file.name,
+                                            // title: file.name,
+                                        })));
+                                        // do something with the response
+                                    }).catch(function (error) {
+                                        if (error) {
+                                            window.alert("There was a problem uploading your image, please try again.");
+                                        }
+                                    }).catch(function (error) {
+                                        console.log(error);
+                                        if (error) {
+                                            window.alert("There was a problem uploading your image, please try again.");
+                                        }
+                                    });
+                                }
+                            };
+                            img.src = URL.createObjectURL(file);
+                        } else {
+                            window.alert("Images need to be less than 10mb in size.");
+                        }
+                        return true; // handled
+                    }
+                }
+                return false; // not handled
+            },
             handleDrop: function (view, event, slice, moved) {
                 if (!moved && event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0]) { // if dropping external files
                     let file = event.dataTransfer.files[0]; // the dropped file

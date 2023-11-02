@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('id')->primary()->unique();
             $table->string('title');
             $table->string('slug');
-            $table->text('description');
+            $table->longText('description');
             $table->string('category')->nullable();
             $table->string('image')->nullable();
             $table->integer('price')->nullable();

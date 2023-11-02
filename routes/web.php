@@ -91,6 +91,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 
 
+// Post image
+Route::post('uploadimage', [ImageController::class, 'uploadImage']);
 
 // Fallback route
 Route::fallback(function () {

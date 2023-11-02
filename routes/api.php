@@ -60,5 +60,6 @@ Route::get('download-cv', function () {
 
 // Upload Image
 Route::post('uploadimage', [ImageController::class, 'uploadImage']);
+Route::get('uploadfile', [ImageController::class, 'uploadFile']);
 
 Route::get('test', [TestingController::class, "index"]);
