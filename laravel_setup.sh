@@ -6,7 +6,7 @@
 composer install
 
 # Generate Laravel application key
-cp .env.example .env
+cp .env.production .env
 php artisan key:generate
 
 # 
