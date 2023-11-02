@@ -2,6 +2,7 @@ import { PageProps } from '@/types'
 import { Link } from '@inertiajs/react'
 import React, { useEffect } from 'react'
 import "./ProductCard.scss"
+import TagComponent from './TagComponent'
 
 export default function ProductCard({ ProductData, width, height, rounded }: { ProductData: any, width?: string, height?: string, rounded?: boolean }) {
 
@@ -39,10 +40,24 @@ export default function ProductCard({ ProductData, width, height, rounded }: { P
                     >
                         {ProductData.title}
                     </h1>
-                    <span
-                        className='ProductCard__title'
+                    <h2>
+                        {ProductData.created_at}
+                    </h2>
+                    <p
+                        className='ProductCard__description'
                     >
-                    </span>
+                        {ProductData.description}
+                    </p>
+                    <div
+                        className='ProductCard__tagContainer'
+                    >
+                        <TagComponent
+                            tag='code'
+                        />
+                        <TagComponent
+                            tag='life'
+                        />
+                    </div>
                 </div>
             </Link>
         </>

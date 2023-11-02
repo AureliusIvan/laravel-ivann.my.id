@@ -2,11 +2,14 @@
     position: relative;
     overflow: hidden;
 
-    height: 100%;
+    height: 40rem;
     width: 100%;
     // border: 2px solid #AFAFDC;
     display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
     background-color: rgb(255, 255, 255, 0.05);
+    padding: 1rem;
 
     &:hover {
         opacity: 0.8;
@@ -15,7 +18,6 @@
 
     .ProductCard__imageContainer {
         width: 20rem;
-        padding: 1rem;
 
         .ProductCard__image {
             width: 100%;
@@ -27,7 +29,10 @@
     }
 
     .ProductCard__InfoContainer {
-        padding: 1rem;
+
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
 
         .ProductCard__title {
             color: white;
@@ -46,6 +51,34 @@
                 transition: all 0.1s ease-in-out;
             }
         }
+
+
+        .ProductCard__description {
+            color: rgb(255, 255, 255, 0.5);
+            font-size: 1rem;
+            font-weight: 400;
+            font-family: 'Epilogue', sans-serif;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 3rem;
+
+        }
+
+        .ProductCard__tagContainer {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            width: 100%;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 0.5rem;
+            height: 2rem;
+        }
+
+
     }
 
     &:hover {

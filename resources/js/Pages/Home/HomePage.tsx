@@ -33,7 +33,6 @@ export default function HomePage() {
                 <HeroSection
                 />
                 {/* <DescriptionSection /> */}
-
                 <ProductSection />
                 <CollaborateSection />
             </Guest>

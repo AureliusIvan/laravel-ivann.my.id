@@ -20,11 +20,8 @@ export default function HeroSection() {
     return (
         <SectionContainer>
             <div
-                className='flex flex-col items-center  
+            className='flex flex-col items-center  
             w-full h-[40rem] 
-            md:h-[40rem] 
-            lg:h-[60rem] 
-            min-h-max 
             bg-primary border border-dashed border-transparentWhite 
             '
             >
@@ -37,8 +34,7 @@ export default function HeroSection() {
                 text-secondary capitalize'
                 >
                     {companyData.company_name}
-                    {/* Ivan's <span className='text-[rgba(255,0,0,0.5)]'> Docs</span> */}
-                </h1>
+                </h1>   
                 <p
                     className='font-poppins font-[400] text-[1rem] text-white capitalize min-h-max
                     opacity-70 text-center border border-dashed border-transparentWhite p-boxS
@@ -57,19 +53,20 @@ export default function HeroSection() {
                         <Porto />
                     </Button>
 
-                    <Button
-                        target='_blank'
+                    <a
                         href={`mailto:${companyData.company_email}`}
-                        className='bg-none text-white
-                        border-secondary border-[0.1rem]
-                        gap-[0.5rem] font-bold
-                        hover:border-opacity-40 transition duration-300 ease-in-out'
+                        className={`px-[2rem] py-[0.5rem] rounded-[0.5rem] w-full font-poppins font-[500] text-[1rem] 
+                                    hover:bg-opacity-40 transition duration-300 ease-in-out 
+                                    flex justify-center items-center text-center
+                                    bg-none text-white
+                                  border-secondary border-[0.1rem] gap-[0.5rem] 
+                                  hover:border-opacity-40 
+                }`}
                     >
                         Contact Me!
-                        <Mail />
-                    </Button>
+                    </a>
                 </div>
-                
+
                 <div
                     className='flex flex-col md:flex-row gap-[1rem] mt-[1rem] w-full min-h-max px-boxS'
                 >
@@ -92,6 +89,22 @@ export default function HeroSection() {
 
 
 const Button = ({ children, className = '', ...props }: InertiaLinkProps) => {
+    return (
+        <Link
+            {...props}
+            className={`
+             px-[2rem] py-[0.5rem] rounded-[0.5rem] w-full font-poppins font-[500] text-[1rem]
+                    hover:bg-opacity-40 transition duration-300 ease-in-out
+                    flex justify-center items-center text-center
+                    ${className}`}
+        >
+            {children}
+        </Link>
+    )
+}
+
+
+const ButtonLink = ({ children, className = '', ...props }: InertiaLinkProps) => {
     return (
         <Link
             {...props}

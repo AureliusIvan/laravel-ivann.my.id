@@ -17,8 +17,14 @@ class ProductController extends Controller
 
     public function __invoke()
     {
+
+        $productData = Product::getAllProduct();
+        //sanitize data and remove all html tags
+        foreach ($productData as $key => $value) {
+            $productData[$key]->description = strip_tags($value->description);
+        }
         return inertia('Product/ProductPage', [
-            'ProductData' => fn () => Product::getAllProduct(),
+            'ProductData' => $productData,
         ]);
     }
 

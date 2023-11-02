@@ -46,44 +46,34 @@ export default function ProductSection() {
                     </Link>
                 </div>
                 <div
-                    className='hidden md:flex  flex-wrap mt-[1rem] md:mt-[2rem] justify-between rounded-[0.75rem] overflow-hidden'
+                    className='flex  flex-wrap mt-[1rem] md:mt-[2rem] justify-between rounded-[0.75rem] overflow-hidden'
                 >
                     {
                         PortofolioData?.map((item: any, index: any) => {
-                            if (counter === 4) {
-                                counter = 0;
-                            }
-                            counter = counter + 1;
-                            if (counter >= 3) {
-                                return (
-                                    <ProductCard
-                                        ProductData={item}
-                                        key={index}
-                                        width={"60%"}
-                                        height='23.5rem'
-                                    />
-                                )
-                            } else {
-                                return (
-                                    <ProductCard
-                                        ProductData={item}
-                                        key={index}
-                                        width={"40%"}
-                                        height='23.5rem'
+                            // if (counter === 4) {
+                            //     counter = 0;
+                            // }
+                            // counter = counter + 1;
+                            // if (counter >= 3) {
+                            //     return (
+                            //         <ProductCard
+                            //             ProductData={item}
+                            //             key={index}
+                            //             width={"60%"}
+                            //             height='23.5rem'
+                            //         />
+                            //     )
+                            // } else {
+                            //     return (
+                            //         <ProductCard
+                            //             ProductData={item}
+                            //             key={index}
+                            //             width={"40%"}
+                            //             height='23.5rem'
 
-                                    />
-                                )
-                            }
-                        })
-                    }
-                </div>
-
-                {/* For Mobile View */}
-                <div
-                    className='flex md:hidden flex-wrap mt-[1rem] md:mt-[2rem] justify-between rounded-[0.75rem] overflow-hidden'
-                >
-                    {
-                        PortofolioData?.map((item: any, index: any) => {
+                            //         />
+                            //     )
+                            // }
                             return (
                                 <ProductCard
                                     ProductData={item}
@@ -94,6 +84,7 @@ export default function ProductSection() {
                         })
                     }
                 </div>
+
 
                 <Link className="btn bg-secondary block md:hidden mt-[1rem]"
                     href='/portofolio'
