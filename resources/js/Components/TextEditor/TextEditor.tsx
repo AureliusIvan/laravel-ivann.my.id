@@ -244,26 +244,14 @@ const MenuBar = ({ editor }: any) => {
 }
 
 export default ({ setData, data, setContent }: any) => {
+    
     function uploadImage(file: any) {
         const data = new FormData();
         data.append('image', file);
-        return axios.post('/api/uploadimage', data)
-            .then((res) => {
-                return res
-            })
-        // .catch((err) => {
-        //     console.log(err)
-        //     // upload using inertia useRoute
-        //     // router.post('/api/uploadimage', data, {
-        //     //     forceFormData: true,
-        //     //     onSuccess: (response: any) => {
-        //     //         console.log(response)
-        //     //         return response
-        //     //     }
-        //     // })
-        // })
-
+        const test = axios.post('/api/uploadimage', data);
+        return test;
     };
+
     const editor = useEditor({
         onUpdate: ({ editor }: any) => {
             setContent({

@@ -12,6 +12,7 @@ class ImageController extends Controller
     public function uploadImage(Request $request)
     {
         try {
+            
             if (!$request->hasFile('image')) {
                 return response()->json([
                     'message' => 'image is required',
