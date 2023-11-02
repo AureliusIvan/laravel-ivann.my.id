@@ -11,10 +11,12 @@ php artisan key:generate
 
 # 
 php artisan config:cache
-
 # Run Laravel database migrations
 php artisan migrate
 php artisan migrate:fresh --seed --seeder=CallAllSeeder
+
+php artisan route:clear
+php artisan route:cache
 
 cd public
 rm -r storage
