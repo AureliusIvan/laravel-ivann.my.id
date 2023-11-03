@@ -32,5 +32,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
-          server-dir: /public_html/
+          server-dir: /ivann.my.id/
           exclude: .git* .env* .github* .gitignore node_modules/ 
