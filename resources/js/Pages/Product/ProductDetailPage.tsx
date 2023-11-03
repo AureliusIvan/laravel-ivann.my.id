@@ -125,7 +125,6 @@ export default function ProductDetailPage() {
                                 </div>
                                 <Header
                                     title={ProductData.title}
-
                                     createdAt={ProductData.created_at}
                                 />
 

@@ -11,10 +11,9 @@ export default function Header({ title, image, createdAt }: Props) {
 
         <div
             className='flex flex-col items-center justify-center
-                    w-full h-[7.5rem] 
-                    md:h-[10rem] md:w-full
-                    relative isolate overflow-hidden 
-                    '
+                    w-full h-[fit-content]
+                     md:w-full
+                    relative isolate overflow-hidden'
         >
             <div
                 className='w-fit flex flex-col items-center justify-center   mb-[1rem]'

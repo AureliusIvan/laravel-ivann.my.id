@@ -37,11 +37,14 @@
         "@tiptap/extension-highlight": "^2.1.11",
         "@tiptap/extension-horizontal-rule": "^2.1.11",
         "@tiptap/extension-image": "^2.1.11",
+        "@tiptap/extension-link": "^2.1.12",
+        "@tiptap/extension-placeholder": "^2.1.12",
         "@tiptap/extension-text-align": "^2.1.11",
         "@tiptap/extension-text-style": "^2.1.11",
         "@tiptap/pm": "^2.1.11",
         "@tiptap/react": "^2.1.11",
         "@tiptap/starter-kit": "^2.1.11",
+        "@tiptap/suggestion": "^2.1.12",
         "@types/hoist-non-react-statics": "^3.3.1",
         "@types/react-icons": "^3.0.0",
         "@types/react-responsive-masonry": "^2.1.0",
@@ -58,6 +61,7 @@
         "sass": "^1.64.2",
         "styled-components": "^6.0.8",
         "swiper": "^10.2.0",
+        "tippy.js": "^6.3.7",
         "yup": "^1.2.0"
     }
 }

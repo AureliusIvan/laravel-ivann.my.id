@@ -3,13 +3,18 @@ import StarterKit from '@tiptap/starter-kit'
 import TipTapImage from '@tiptap/extension-image'
 import Highlight from "@tiptap/extension-highlight";
 import TextAlign from "@tiptap/extension-text-align";
+import Link from "@tiptap/extension-link";
 import React, { useEffect, useState } from 'react'
 import "@/Styles/TextEditor.scss"
 import HorizontalRule from '@tiptap/extension-horizontal-rule';
 import { createRoot } from 'react-dom/client';
 import axios from 'axios';
 import { router } from '@inertiajs/react';
-// import { TextEditorFeat } from './Feature';
+import Commands from './Suggestion/command';
+import getSuggestionItems from './Suggestion/items';
+import renderItems from './Suggestion/renderitem';
+import { StarNode } from './Feature';
+
 
 const Button = ({ func, className, children, disabled, active }: {
     func?: any,
@@ -201,13 +206,23 @@ const MenuBar = ({ editor }: any) => {
             "func": () => addImage(),
         },
         {
-            // custom button
-            "title": "custom button",
-            "active": false,
+            // for link
+            "title": "setlink",
+            "active": editor.isActive("link"),
             "func": () => {
-                console.log("custom button clicked");
+                const url = window.prompt('Enter the link URL')
+                if (url) {
+                    editor.chain().focus().setLink({ href: url }).run()
+                }
             },
-        }
+        },
+        //toogle custom node "star"
+        {
+            "title": "star",
+            "active": editor.isActive("customNode"),
+            "func": () => editor.chain().focus().setNode("customNode").run(),
+            "disabled": (!editor.can().chain().focus().setNode("customNode").run())
+        },
     ]
     return (
         <div className='menu-bar'>
@@ -244,7 +259,7 @@ const MenuBar = ({ editor }: any) => {
 }
 
 export default ({ setData, data, setContent }: any) => {
-    
+
     function uploadImage(file: any) {
         const data = new FormData();
         data.append('image', file);
@@ -259,6 +274,13 @@ export default ({ setData, data, setContent }: any) => {
             })
         },
         extensions: [
+
+            Commands.configure({
+                suggestion: {
+                    items: getSuggestionItems,
+                    render: renderItems,
+                } as any
+            }),
             HorizontalRule.configure({
                 HTMLAttributes: {
                     class: 'horizontal-rule',
@@ -271,12 +293,17 @@ export default ({ setData, data, setContent }: any) => {
             }),
 
             TextAlign.configure({
-                types: ["heading", "paragraph"],
+                types: ["heading", "paragraph", "highlight"],
             }),
             Highlight,
-            // Link.configure({
-            //     openOnClick: false,
-            // }),
+            //custom class for styling "star" on highlight
+            StarNode,
+            Link.configure({
+                HTMLAttributes: {
+                    class: 'link',
+                },
+                openOnClick: false,
+            }),
         ],
         editorProps: {
             handlePaste: function (view, event, slice) {

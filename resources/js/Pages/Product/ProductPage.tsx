@@ -25,7 +25,9 @@ export default function ProductPage() {
             </Head>
             <Guest>
                 <SectionContainer
-                    className='w-full h-fit'
+                    className='w-full h-fit
+                    min-h-screen
+                    '
                 >
                     <Header
                         title='My Posts'

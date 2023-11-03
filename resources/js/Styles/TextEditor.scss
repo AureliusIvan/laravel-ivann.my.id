@@ -170,4 +170,24 @@
             border-left: 2px solid rgba(#0D0D0D, 0.1);
         }
     }
+
+
+    a {
+        color: #00fbff;
+        text-decoration: none;
+        border-bottom: 1px solid #00fbff;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            color: #fff;
+            border-bottom: 1px solid #fff;
+        }
+    }
+
+    .star {
+        background-color: rgb(59, 59, 57) !important;
+        color: #fff !important;
+        margin: 0%;
+        padding: 0.5rem;    
+    }
 }

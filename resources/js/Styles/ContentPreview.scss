@@ -200,6 +200,17 @@
         }
 
         // quote symbol
+    }
 
+    a {
+        color: #00fbff;
+        text-decoration: none;
+        border-bottom: 1px solid #00fbff;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            color: #fff;
+            border-bottom: 1px solid #fff;
+        }
     }
 }
