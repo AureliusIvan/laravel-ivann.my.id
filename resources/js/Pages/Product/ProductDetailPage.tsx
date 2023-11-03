@@ -23,6 +23,7 @@ import Image from '@tiptap/extension-image';
 import Highlight from '@tiptap/extension-highlight';
 import TextAlign from '@tiptap/extension-text-align';
 import TagComponent from '@/Components/Product/TagComponent';
+import TiptapLink from '@tiptap/extension-link';
 
 type NotificationType = 'success' | 'info' | 'warning' | 'error';
 
@@ -52,7 +53,12 @@ const Preview = ({ html }: any) => {
                 inline: true,
                 allowBase64: true,
             }),
-
+            TiptapLink.configure({
+                HTMLAttributes: {
+                    class: 'link',
+                },
+                openOnClick: false,
+            }),
         ]
     })
 
