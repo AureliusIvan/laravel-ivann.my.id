@@ -25,11 +25,10 @@ export default function ProductPage() {
             </Head>
             <Guest>
                 <SectionContainer
-                    className='w-full h-fit
-                    min-h-screen'
+                    className='w-full h-fit'
                 >
                     <div
-                        className='border border-dashed border-transparentWhite first-letter:capitalize
+                        className='first-letter:capitalize
                         py-[2rem]'
                     >
                         <Header

@@ -15,6 +15,8 @@ import ServiceIcon from "./Asset/services-icon.svg"
 import AboutSection from './Section/AboutSection';
 import CollaborateSection from './Section/CollaborateSection';
 
+import "./HomePage.scss"
+
 export default function HomePage() {
     const page: any = usePage().props;
     useEffect(() => {
@@ -30,11 +32,14 @@ export default function HomePage() {
                 <meta name="keywords" content="" />
             </Head>
             <Guest>
-                <HeroSection
-                />
-                {/* <DescriptionSection /> */}
-                <ProductSection />
-                <CollaborateSection />
+                <div
+                >
+                    <HeroSection
+                    />
+                    {/* <DescriptionSection /> */}
+                    <ProductSection />
+                    <CollaborateSection />
+                </div>
             </Guest>
         </>
     )

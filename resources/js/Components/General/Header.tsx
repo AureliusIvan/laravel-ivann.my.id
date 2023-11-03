@@ -12,12 +12,11 @@ export default function Header({ title, image, createdAt }: Props) {
         <div
             className='flex flex-col items-center justify-center
                     w-full h-[fit-content]
-                     md:w-full 
+                    md:w-full 
+                    gap-[2rem]
+                    my-[2rem]
                     relative isolate overflow-hidden'
         >
-            <div
-                className='w-fit flex flex-col items-center justify-center   mb-[1rem]'
-            >
                 <h1
                     className='text-[#FFFFFF] text-[1.5rem] md:text-[3.75rem] font-[700] z-10 w-full text-center'
                 >
@@ -30,7 +29,7 @@ export default function Header({ title, image, createdAt }: Props) {
                 >
                     {createdAt}
                 </h2>
-            </div>
+            
             <div
                 className='w-[70%] max-w-[8rem] h-[0.2rem] rounded-sm bg-white'
             />

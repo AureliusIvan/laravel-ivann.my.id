@@ -25,8 +25,9 @@ import TextAlign from '@tiptap/extension-text-align';
 import TagComponent from '@/Components/Product/TagComponent';
 import TiptapLink from '@tiptap/extension-link';
 
-type NotificationType = 'success' | 'info' | 'warning' | 'error';
+import "./ProductDetailPage.scss"
 
+type NotificationType = 'success' | 'info' | 'warning' | 'error';
 
 
 interface Props {
@@ -136,13 +137,15 @@ export default function ProductDetailPage() {
                 </div>
             </Modal>
             <Guest>
-
                 <div
-                    className='flex
+                    className='
+                    product-detail-container
+                    flex
                     justify-center items-center w-full h-full'
                 >
                     <div
-                        className='xl:w-[50rem]'
+                        className='xl:w-[50rem]
+                        '
                     >
                         <div className="flex flex-col md:flex-row justify-start 
                                         items-start min-h-screen p-boxS">

@@ -22,13 +22,8 @@ export default function HeroSection() {
             <div
                 className='flex flex-col items-center  
             w-full min-h-[35rem]
-            h-fit
-            py-[2rem]  
-            bg-primary border border-dashed border-transparentWhite'
+            h-fit py-[2rem]'
             >
-                <Header
-                    title='Welcome to my website'
-                />
                 <h1
                     className='font-poppins font-[700] text-[2.25rem] md:text-[3.25rem]
                     xl:text-[6.25rem]  inline-flex
@@ -38,13 +33,16 @@ export default function HeroSection() {
                 </h1>
                 <p
                     className='font-poppins font-[400] text-[1rem] text-white capitalize min-h-max
-                    opacity-70 text-center border border-dashed border-transparentWhite p-boxS
+                    opacity-70 text-center p-boxS
+                    max-w-[50rem]
                     '
                 >
                     Welcome to {companyData.company_name} official website. {companyData.company_description}
                 </p>
                 <div
-                    className='flex flex-col md:flex-row gap-[1rem] mt-[1rem] w-full min-h-max px-boxS'
+                    className='flex flex-col md:flex-row gap-[1rem] mt-[1rem] w-full min-h-max px-boxS
+                    max-w-[50rem]
+                    '
                 >
                     <Button
                         href='/portofolio'
@@ -69,7 +67,7 @@ export default function HeroSection() {
                 </div>
 
                 <div
-                    className='flex flex-col md:flex-row gap-[1rem] mt-[1rem] w-full min-h-max px-boxS'
+                    className='flex flex-col md:flex-row gap-[1rem] mt-[1rem] w-full min-h-max px-boxS max-w-[50rem]'
                 >
                     <button
                         onClick={() => window.open(companyData.cv, '_blank')}

@@ -9,6 +9,8 @@ import NavLink from '@/Components/NavLink';
 import Dropdown from '@/Components/Dropdown';
 import SectionContainer from '@/Components/General/SectionContainer';
 
+import "./Layout.scss"
+
 export default function Guest({ header, footer = true, children }: PropsWithChildren<{ header?: ReactNode, footer?: boolean }>) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = React.useState(false);
     const companyData: any = usePage().props.companyData; //get page info
@@ -110,9 +112,16 @@ export default function Guest({ header, footer = true, children }: PropsWithChil
                 className='opacity-0 h-[4.5rem] sm:h-[4.25rem] w-full'
             />
             <main
-                className='bg-primary'
+                className='bg-primary
+                layout-container
+                isolate
+                '
             >
-                {children}
+                <div
+                className='isolate'
+                >
+                    {children}
+                </div>
                 <button
                     onClick={() => window.scrollTo(0, 0)}
                     className='fixed bottom-[2rem] right-[2rem] bg-primaryBlack text-[#F9F5F2] font-[600] px-[0.75rem] py-[0.5rem] rounded-[0.5rem] hover:opacity-70 transition duration-300 ease-in-out text-[1.25rem] bg-opacity-20'

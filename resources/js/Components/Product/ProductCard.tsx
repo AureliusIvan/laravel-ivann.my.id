@@ -16,6 +16,8 @@ export default function ProductCard({ ProductData, width, height, rounded }: { P
                 href={`/portofolio/${ProductData.slug}`}
                 className='ProductCard'
                 style={{
+                    
+                    isolation: 'isolate',
                     width: width,
                     height: height,
                     borderRadius: rounded ? '0.75rem' : '0rem'

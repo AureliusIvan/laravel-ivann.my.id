@@ -1,3 +1,6 @@
+//import var from './Variables.scss';
+@import './global.scss';
+
 .TextEditor {
     border-radius: 0.5rem;
     font-family: 'Poppins', sans-serif;
@@ -240,27 +243,11 @@
     }
 
     a {
-        color: #000000 !important;
-        text-decoration: none;
-        border-radius: 0.5rem;
+
+        color: $secondaryColor !important;
+        text-decoration: wavy;
+        // position: relative;
         transition: all 0.3s ease-in-out;
-        background-color: rgb(14, 147, 214);
-        padding: 0.5rem;
-        font-weight: 600;
-
-        &:hover {
-            opacity: 0.2;
-        }
-
-        &:visited {
-            color: #00fbff;
-        }
-
-        &::after {
-            content: "🔗";
-            margin-right: 0.5rem;
-            
-        }
 
     }
 
@@ -273,5 +260,13 @@
         &:hover {
             color: #00fbff;
         }
+    }
+
+    mark {
+        background-color: $secondaryColor;
+        color: #000;
+        padding: 0.2rem;
+        font-weight: 600;
+        // border-radius: 0.5rem;
     }
 }
