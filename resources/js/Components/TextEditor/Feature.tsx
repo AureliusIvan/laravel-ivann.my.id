@@ -8,6 +8,7 @@ export const StarNode = Node.create({
     defaultOptions: {
         HTMLAttributes: {
             class: 'star',
+            
         },
     },
 

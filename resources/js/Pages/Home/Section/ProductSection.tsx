@@ -26,7 +26,7 @@ export default function ProductSection() {
                         text-white
                         '
                     >
-                        Discover my PortoFolio & Project
+                        Discover my posts
                     </h1>
                     <Link className="btn bg-secondary hidden md:block"
                         href='/portofolio'
@@ -46,7 +46,7 @@ export default function ProductSection() {
                     </Link>
                 </div>
                 <div
-                    className='flex  flex-wrap mt-[1rem] md:mt-[2rem] justify-between rounded-[0.75rem] overflow-hidden'
+                    className='flex  flex-wrap mt-[1rem] md:mt-[2rem] justify-between rounded-[0.75rem] overflow-hidden gap-[1rem]'
                 >
                     {
                         PortofolioData?.map((item: any, index: any) => {

@@ -40,7 +40,9 @@ export default function ProductCard({ ProductData, width, height, rounded }: { P
                     >
                         {ProductData.title}
                     </h1>
-                    <h2>
+                    <h2
+                    className='ProductCard__createdAt'
+                    >
                         {ProductData.created_at}
                     </h2>
                     <p

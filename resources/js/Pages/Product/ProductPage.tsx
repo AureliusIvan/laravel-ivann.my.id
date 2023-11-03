@@ -26,61 +26,36 @@ export default function ProductPage() {
             <Guest>
                 <SectionContainer
                     className='w-full h-fit
-                    min-h-screen
-                    '
+                    min-h-screen'
                 >
-                    <Header
-                        title='My Posts'
-                    />
-                    {/* <div>
-                        <input
-                            className='
-                            text-white
-                            w-full h-[3rem] rounded-[0.75rem] border-[0.1rem] border-solid border-white bg-primary'
-                            type="text" placeholder="Search.." name="search" />
-                    </div> */}
                     <div
-                        className='
+                        className='border border-dashed border-transparentWhite first-letter:capitalize
+                        py-[2rem]'
+                    >
+                        <Header
+                            title='My Posts'
+                        />
+                        <div
+                            className='
                         h-fit
                         pb-[4rem] md:p-[2rem]
                         flex flex-wrap flex-col
                         justify-center items-center gap-2
                         w-full md:gap-4 
                         lg:gap-4 pt-[2rem]'>
-                        {
-                            ProductData?.map((product: any) => {
-                                return (
-                                    <ProductCard
-                                        key={product.id}
-                                        ProductData={product}
-                                        height='13.5rem'
-                                        rounded={true}
-                                    />)
-                            })
-                        }
+                            {
+                                ProductData?.map((product: any) => {
+                                    return (
+                                        <ProductCard
+                                            key={product.id}
+                                            ProductData={product}
+                                            height='13.5rem'
+                                            rounded={true}
+                                        />)
+                                })
+                            }
+                        </div>
                     </div>
-                    {/* <div
-                        className=' flex-row justify-center items-center w-full flex-wrap hidden text-primaryBlack'
-                    >
-                        {ProductData.links ? ProductData.links.map((link: any) => {
-                            return (
-                                <Link
-                                    key={link.label}
-                                    href={link.url}
-                                    className={`p-2 m-2 border-2 rounded-md shadow-sm m-y shadow-red-100  ${link.active && "text-white bg-black"}`}
-                                >
-                                    {`${link.label}`}
-                                </Link>
-                            )
-                        })
-                            : <div
-                                className='text-center w-full'
-                            >
-                                No data here yet
-                            </div>
-                        }
-                    </div> */}
-                    {/* <CollaborateCard /> */}
                 </SectionContainer>
             </Guest>
         </>

@@ -13,7 +13,7 @@ export default function TagComponent({ tag }: { tag: string }) {
     return (
         <div
             className='ProductCard__tag px-[0.5rem] py-[0.2rem] rounded-[0.75rem] text-[0.75rem] font-[600]
-            flex justify-center items-center w-[fit-content] text-white'
+            flex justify-center items-center w-[fit-content] text-white font-poppins'
             style={{
                 backgroundColor: tagColor(tag)
             }}

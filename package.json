@@ -51,6 +51,7 @@
         "antd": "^5.7.3",
         "concurrently": "^8.2.1",
         "formik": "^2.4.3",
+        "framer-motion": "^10.16.4",
         "graphql": "^16.8.0",
         "lowlight": "^2.9.0",
         "moment": "^2.29.4",

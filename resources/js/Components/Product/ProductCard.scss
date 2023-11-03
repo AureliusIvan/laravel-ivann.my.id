@@ -1,21 +1,18 @@
 .ProductCard {
     position: relative;
     overflow: hidden;
-
-    // height: 40rem !important;
     width: 100%;
-    // border: 2px solid #AFAFDC;
     display: flex;
     flex-direction: row;
+
     gap: 1.5rem;
     background-color: rgb(255, 255, 255, 0.05);
     padding: 1rem;
 
-
     @media screen and (max-width: 768px) {
-        // width: 15rem;
         padding: 0.5rem;
-        height: 10rem !important;
+        height: fit-content !important;
+        flex-direction: column;
     }
 
     &:hover {
@@ -27,8 +24,8 @@
         width: 20rem;
 
         @media screen and (max-width: 768px) {
-            width: 15rem;
-            // height: 10rem;
+            width: 100%;
+            height: fit-content;
         }
 
         .ProductCard__image {
@@ -37,6 +34,12 @@
             object-fit: cover;
             transition: all 0.1s ease-in-out;
             border-radius: 0.5rem;
+
+            @media screen and (max-width: 768px) {
+                width: 100%;
+                height: 10rem;
+            }
+
         }
     }
 
@@ -57,12 +60,8 @@
             font-size: 1.5rem;
 
             @media screen and (max-width: 768px) {
-                font-size: 1rem;
-                // max lines 2 
-                height: 2rem;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
+                font-size: 1.2rem;
+                height: fit-content;
             }
 
             .ProductCard__icon {
@@ -73,6 +72,14 @@
             }
         }
 
+        .ProductCard__createdAt {
+            color: rgb(255, 255, 255, 0.3);
+            font-size: 1rem;
+            font-weight: 400;
+            font-family: 'Epilogue', sans-serif;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
 
         .ProductCard__description {
             color: rgb(255, 255, 255, 0.5);
@@ -81,9 +88,19 @@
             font-family: 'Epilogue', sans-serif;
             margin-top: 0.5rem;
             margin-bottom: 0.5rem;
+
+            height: 3rem;
+            width: 100%;
+            // text wrap fix
+            overflow-wrap: break-word;
             overflow: hidden;
             text-overflow: ellipsis;
-            height: 3rem;
+
+            @media screen and (max-width: 768px) {
+                height: fit-content;
+                max-height: 3rem;
+            }
+
 
         }
 

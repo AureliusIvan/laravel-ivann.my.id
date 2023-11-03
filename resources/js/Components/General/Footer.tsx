@@ -20,7 +20,7 @@ export default function Footer() {
                     <path d="M2.5 2H67.5" strokeWidth="4" strokeLinecap="round" />
                 </svg>
             </div>
-            
+
             <div className="flex-col justify-start items-center gap-5 flex">
                 <div className="text-black text-[1.25rem] font-[500] text-white">Our social media</div>
                 <div className="md:justify-start md:items-start md:gap-4 xl:inline-flex
@@ -34,7 +34,7 @@ export default function Footer() {
                     />
                     <SocialCard
                         icon='https://www.svgrepo.com/show/521711/instagram.svg'
-                        link={`${companyData.company_instagram}`}
+                        link={`https://instagram.com/${companyData.company_instagram}`}
                         title='Instagram'
                     />
                     <SocialCard

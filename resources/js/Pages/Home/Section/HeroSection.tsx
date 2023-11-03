@@ -20,10 +20,11 @@ export default function HeroSection() {
     return (
         <SectionContainer>
             <div
-            className='flex flex-col items-center  
-            w-full h-[40rem] 
-            bg-primary border border-dashed border-transparentWhite 
-            '
+                className='flex flex-col items-center  
+            w-full min-h-[35rem]
+            h-fit
+            py-[2rem]  
+            bg-primary border border-dashed border-transparentWhite'
             >
                 <Header
                     title='Welcome to my website'
@@ -34,7 +35,7 @@ export default function HeroSection() {
                 text-secondary capitalize'
                 >
                     {companyData.company_name}
-                </h1>   
+                </h1>
                 <p
                     className='font-poppins font-[400] text-[1rem] text-white capitalize min-h-max
                     opacity-70 text-center border border-dashed border-transparentWhite p-boxS
@@ -49,7 +50,7 @@ export default function HeroSection() {
                         href='/portofolio'
                         className='bg-secondary font-bold gap-[0.5rem]'
                     >
-                        Post & Portofolio
+                        Posts
                         <Porto />
                     </Button>
 

@@ -16,7 +16,6 @@ export default function SectionContainer({ children, className }: Props) {
             xl:px-[6.25rem]
             w-full
             h-full
-            pt-[4rem]
             ${className}
             `}
         >

@@ -12,7 +12,7 @@ export default function Header({ title, image, createdAt }: Props) {
         <div
             className='flex flex-col items-center justify-center
                     w-full h-[fit-content]
-                     md:w-full
+                     md:w-full 
                     relative isolate overflow-hidden'
         >
             <div
