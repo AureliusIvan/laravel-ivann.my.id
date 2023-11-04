@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     //user
-
-
     public function __invoke()
     {
 
@@ -30,14 +28,21 @@ class ProductController extends Controller
 
     public function ProductDetail($slug)
     {
-        $ProductData = Product::where('slug', $slug)->first();
-        // $ProductData->image = Image::where('product_id', $ProductData->id)->get();
-        // $RecommendedProduct = Product::
+
+        $ProductData = Cache::rememberForever('ProductData:' . $slug, function () use ($slug) {
+            return Product::where('slug', $slug)->first();
+        });
+
+        if (!$ProductData) {
+            return inertia('ErrorPage');
+        }
+        
+
         return inertia('Product/ProductDetailPage', [
             'ProductData' => $ProductData,
-            // 'RecommendedProduct' => $RecommendedProduct,
         ]);
     }
+
 
     // ADMIN FUNCTION
     public function AdminPage()

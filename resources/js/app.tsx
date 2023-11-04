@@ -1,6 +1,5 @@
 import './bootstrap';
 import '@/Styles/global.scss';
-// import '@styles/global.scss';
 import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
@@ -15,6 +14,8 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
 });
 
+
+// for antd dark theme
 const { darkAlgorithm } = theme;
 
 createInertiaApp({
@@ -35,6 +36,8 @@ createInertiaApp({
         );
     },
     progress: {
-        color: '#4B5563',
+        //make gradient progress bar
+        color: '#ff69b4',
     },
+    
 });

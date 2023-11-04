@@ -16,6 +16,9 @@ type Props = {
     companyDescription: string
 }
 
+
+
+
 export default function HeroSection() {
     const companyData: any = usePage().props.companyData; //get page info
     return (
@@ -35,12 +38,12 @@ export default function HeroSection() {
                     {companyData.company_name}
                 </h1>
                 <p
-                    className='font-poppins font-[400] text-[1rem] text-white capitalize min-h-max
-                    opacity-70 text-center p-boxS
-                    max-w-[50rem]
+                    className='font-poppins font-[400] text-[1.25rem] text-white capitalize min-h-max
+                    opacity-80 text-center p-boxS
+                    max-w-[40rem]
                     '
-                >
-                    Welcome to {companyData.company_name} official website. {companyData.company_description}
+                >   
+                    Welcome to {companyData.company_name} official website. {companyData.company_description} 🏠
                 </p>
                 <div
                     className='flex flex-col md:flex-row gap-[1rem] mt-[1rem] w-full min-h-max px-boxS
@@ -57,7 +60,7 @@ export default function HeroSection() {
                         href={`mailto:${companyData.company_email}`}
                         className={`${ButtonStyle}`}
                     >
-                        Contact Me!
+                        Contact Me! <Mail />
                     </a>
                 </div>
 

@@ -123,6 +123,13 @@ export default function ProductDetailPage() {
                 <title>
                     {ProductData.title}
                 </title>
+                <meta charSet="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content={ProductData.title} />
+                <meta property="og:description" content={ProductData.title} />
+                <meta property="og:image" content={ProductData.image} />
+                <meta property="og:url" content="https://ivann.my.id/" />
             </Head>
             {contextHolder} {/*for notification*/}
             <Modal

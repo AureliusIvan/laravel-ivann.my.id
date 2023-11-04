@@ -52,7 +52,8 @@ export default function Footer() {
                 >© 2023 Aurelius Ivan Wijaya.</span><span
                     className='text-white text-[0.95rem] md:text-[1.25rem] font-[400]'
                 > All rights reserved</span></div>
-                <div className="text-[#B7B7B7] text-base font-normal text-center text-[0.725rem] md:text-[1.15rem] px-boxS">This website is managed by {companyData.company_name}
+                <div className="text-[#B7B7B7] text-base font-normal text-center text-[0.725rem] md:text-[1.15rem] px-boxS">
+                    This website is managed by myself 🫡
                 </div>
             </div>
         </footer>

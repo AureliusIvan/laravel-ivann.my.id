@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.8",
         "mll-lab/laravel-graphiql": "^3.1",
         "nuwave/lighthouse": "^6.16",
+        "predis/predis": "^2.2",
         "ramsey/uuid": "^4.7",
         "spatie/laravel-sitemap": "^6.3",
         "tightenco/ziggy": "^1.0"

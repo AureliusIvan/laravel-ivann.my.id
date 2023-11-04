@@ -20,7 +20,7 @@ export default function ProductSection() {
                 >
                     <h1
                         className='text-[1.5rem] md:text-[2rem] font-[700] w-full
-                        text-white text-center md:text-left'
+                        text-white text-center md:text-left capitalize'
                     >
                         Discover my posts
                     </h1>
@@ -42,7 +42,7 @@ export default function ProductSection() {
                     </Link>
                 </div>
                 <div
-                    className='flex  flex-wrap mt-[1rem] md:mt-[2rem] justify-between rounded-[0.75rem] overflow-hidden gap-[1rem]'
+                    className='flex  flex-wrap mt-[1rem] md:mt-[2rem] justify-between overflow-hidden gap-[1rem]'
                 >
                     {
                         PortofolioData?.map((item: any, index: any) => {

@@ -13,7 +13,7 @@ export default function ProductCard({ ProductData, width, height }: { ProductDat
     return (
         <>
             <Link
-                href={`/portofolio/${ProductData.slug}`}
+                href={`/post/${ProductData.slug}`}
                 className='ProductCard'
                 style={{
                     

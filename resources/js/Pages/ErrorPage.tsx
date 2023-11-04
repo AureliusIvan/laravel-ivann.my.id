@@ -18,7 +18,14 @@ export default function ErrorPage() {
                     </p>
                     <div className="flex items-center w-full mt-6 gap-x-3 shrink-0 sm:w-auto">
                         <Button
-                            onClick={() => window.history.back()}
+                            onClick={
+                                () => {
+                                    if (window.history.length > 1) {
+                                        window.history.back();
+                                    } else {
+                                        window.location.href = "/";
+                                    }
+                                }}
                         >
                             Go Back
                         </Button>

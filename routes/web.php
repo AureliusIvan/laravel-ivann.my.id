@@ -47,8 +47,8 @@ Route::get('/testing', function () {
 })->name('testing');
 Route::get('/contact', ContactController::class)->name('contact');
 
-Route::get('/portofolio', ProductController::class)->name('product');
-Route::get('/portofolio/{slug}', [ProductController::class, 'ProductDetail'])->name('product.detail');
+Route::get('/post', ProductController::class)->name('product');
+Route::get('/post/{slug}', [ProductController::class, 'ProductDetail'])->name('product.detail');
 
 Route::get('/gallery', GalleryController::class)->name('gallery');
 
@@ -67,16 +67,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/admin/webconfig', [WebconfigController::class, 'UpdateWebconfig'])->name('admin.webconfig.update');
 
     // PRODUCT
-    Route::get('/admin/portofolio', [ProductController::class, 'AdminPage'])->name('admin.product');
+    Route::get('/admin/post', [ProductController::class, 'AdminPage'])->name('admin.product');
     Route::get(
-        '/admin/portofolio/add',
+        '/admin/post/add',
         function () {
             return Inertia::render('Admin/Product/ProductAddPage');
         }
-    )->name('admin.portofolio.addpage');
-    Route::post('/admin/portofolio/{id}', [ProductController::class, 'UpdateProduct'])->name('admin.product.update');
-    Route::delete('/admin/portofolio/{id}', [ProductController::class, 'DeleteProduct'])->name('admin.product.delete');
-    Route::post('/admin/portofolio', [ProductController::class, 'AddProduct'])->name('admin.product.add');
+    )->name('admin.post.addpage');
+    Route::post('/admin/post/{id}', [ProductController::class, 'UpdateProduct'])->name('admin.product.update');
+    Route::delete('/admin/post/{id}', [ProductController::class, 'DeleteProduct'])->name('admin.product.delete');
+    Route::post('/admin/post', [ProductController::class, 'AddProduct'])->name('admin.product.add');
 
     // GALLERY
     Route::get('/admin/gallery', [GalleryController::class, 'AdminPage'])->name('admin.gallery');
