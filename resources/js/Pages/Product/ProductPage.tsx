@@ -31,17 +31,34 @@ export default function ProductPage() {
                         className='first-letter:capitalize
                         py-[2rem]'
                     >
-                        <Header
-                            title='My Posts'
-                        />
                         <div
-                            className='
-                        h-fit
-                        pb-[4rem] md:p-[2rem]
-                        flex flex-wrap flex-col
-                        justify-center items-center gap-2
-                        w-full md:gap-4 
-                        lg:gap-4 pt-[2rem]'>
+                            className='flex flex-col items-center justify-center w-full h-[fit-content]
+                                        md:w-full 
+                                        gap-[1rem]
+                                        my-[1rem]
+                                        relative isolate overflow-hidden'>
+                            <h1
+                                className='text-[#FFFFFF] text-[2rem] md:text-[3.75rem] font-[700] z-10 w-full text-center
+                                
+                bg-gradient-to-r from-secondary via-secondary to-primaryPink text-transparent bg-clip-text animate-gradient bg-300%
+                                '
+                            >
+                                My Posts
+                            </h1>
+
+                            <h2
+                                className='font-poppins text-center text-[1rem] 
+                                font-[400] text-[rgba(255,255,255,0.7)]'
+                            >
+                                Hi! Check out my posts below 🐋
+                            </h2>
+                            <div
+                                className='w-[70%] max-w-[8rem] h-[0.2rem] rounded-sm bg-white'
+                            />
+                        </div>
+                        <div
+                            className='h-fit pb-[4rem] md:p-[2rem] flex flex-wrap flex-col justify-center items-center gap-2 
+                                    w-full md:gap-4 lg:gap-4 pt-[2rem]'>
                             {
                                 ProductData?.map((product: any) => {
                                     return (

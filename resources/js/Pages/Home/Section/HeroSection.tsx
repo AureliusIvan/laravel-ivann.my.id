@@ -1,6 +1,5 @@
-// import Button from '@/Components/General/Button';
 import Header from '@/Components/General/Header';
-import SectionContainer from '@/Components/General/SectionContainer'
+import SectionContainer from '@/Components/General/SectionContainer';
 import { InertiaLinkProps, Link, usePage } from '@inertiajs/react';
 import React from 'react'
 // Icon 
@@ -9,6 +8,8 @@ import {
     BsFillEnvelopeHeartFill as Mail,
     BsDownload as Download
 } from "react-icons/bs"
+
+import "../HomePage.scss";
 
 type Props = {
     companyName: string,
@@ -27,7 +28,9 @@ export default function HeroSection() {
                 <h1
                     className='font-poppins font-[700] text-[2.25rem] md:text-[3.25rem]
                     xl:text-[6.25rem]  inline-flex
-                text-secondary capitalize'
+                 capitalize
+                bg-gradient-to-r from-secondary via-secondary to-primaryPink text-transparent bg-clip-text animate-gradient bg-300% 
+                '
                 >
                     {companyData.company_name}
                 </h1>
@@ -41,12 +44,10 @@ export default function HeroSection() {
                 </p>
                 <div
                     className='flex flex-col md:flex-row gap-[1rem] mt-[1rem] w-full min-h-max px-boxS
-                    max-w-[50rem]
-                    '
+                    max-w-[50rem]'
                 >
                     <Button
                         href='/portofolio'
-                        className='bg-secondary font-bold gap-[0.5rem]'
                     >
                         Posts
                         <Porto />
@@ -54,13 +55,7 @@ export default function HeroSection() {
 
                     <a
                         href={`mailto:${companyData.company_email}`}
-                        className={`px-[2rem] py-[0.5rem] rounded-[0.5rem] w-full font-poppins font-[500] text-[1rem] 
-                                    hover:bg-opacity-40 transition duration-300 ease-in-out 
-                                    flex justify-center items-center text-center
-                                    bg-none text-white
-                                  border-secondary border-[0.1rem] gap-[0.5rem] 
-                                  hover:border-opacity-40 
-                }`}
+                        className={`${ButtonStyle}`}
                     >
                         Contact Me!
                     </a>
@@ -71,9 +66,7 @@ export default function HeroSection() {
                 >
                     <button
                         onClick={() => window.open(companyData.cv, '_blank')}
-                        className='btn bg-secondary w-full text-center font-bold flex text-[1rem]
-                        justify-center items-center gap-[0.5rem]
-                        '
+                        className={`${ButtonStyle}`}
                     >
                         Download CV
                         <Download />
@@ -91,11 +84,7 @@ const Button = ({ children, className = '', ...props }: InertiaLinkProps) => {
     return (
         <Link
             {...props}
-            className={`
-             px-[2rem] py-[0.5rem] rounded-[0.5rem] w-full font-poppins font-[500] text-[1rem]
-                    hover:bg-opacity-40 transition duration-300 ease-in-out
-                    flex justify-center items-center text-center
-                    ${className}`}
+            className={`${ButtonStyle}`}
         >
             {children}
         </Link>
@@ -103,17 +92,14 @@ const Button = ({ children, className = '', ...props }: InertiaLinkProps) => {
 }
 
 
-const ButtonLink = ({ children, className = '', ...props }: InertiaLinkProps) => {
-    return (
-        <Link
-            {...props}
-            className={`
-             px-[2rem] py-[0.5rem] rounded-[0.5rem] w-full font-poppins font-[500] text-[1rem] 
-             hover:bg-opacity-40 transition duration-300 ease-in-out 
-             flex justify-center items-center text-center
-            ${className}`}
-        >
-            {children}
-        </Link>
-    )
-}
+
+
+const ButtonStyle = `
+px-[2rem] py-[0.5rem] rounded-[0.5rem] w-full font-poppins font-[500] text-[1rem]
+hover:bg-opacity-40 transition duration-300 ease-in-out
+flex justify-center items-center text-center
+shadow-[0_20px_50px_rgba(8,_112,_184,_0.3)]
+text-white
+border-secondary border-[0.1rem] gap-[0.5rem]
+hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]
+`

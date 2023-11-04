@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import "./ProductCard.scss"
 import TagComponent from './TagComponent'
 
-export default function ProductCard({ ProductData, width, height, rounded }: { ProductData: any, width?: string, height?: string, rounded?: boolean }) {
+export default function ProductCard({ ProductData, width, height }: { ProductData: any, width?: string, height?: string, rounded?: boolean }) {
 
     useEffect(() => {
         console.log(ProductData);
@@ -20,7 +20,6 @@ export default function ProductCard({ ProductData, width, height, rounded }: { P
                     isolation: 'isolate',
                     width: width,
                     height: height,
-                    borderRadius: rounded ? '0.75rem' : '0rem'
                 }}
             >
                 <div

@@ -16,6 +16,19 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 poppins: ['Poppins', ...defaultTheme.fontFamily.sans],
             },
+            keyframes: {
+                animatedgradient: {
+                    '0%': { backgroundPosition: '0% 50%' },
+                    '50%': { backgroundPosition: '100% 50%' },
+                    '100%': { backgroundPosition: '0% 50%' },
+                },
+            },
+            backgroundSize: {
+                '300%': '300%',
+            },
+            animation: {
+                gradient: 'animatedgradient 6s ease infinite alternate',
+            },
         },
         colors: {
             ...defaultTheme.colors,
@@ -26,8 +39,10 @@ export default {
             white: "#FFFFFF",
             green: "#198754",
             transparentWhite: "rgba(255,255,255,0.3)",
+            transparent: "transparent",
             primaryRed: "#DC0D0D",
             primaryBlack: "#000000",
+            primaryPink: "#ff69b4",
         },
         padding: {
             ...defaultTheme.padding,

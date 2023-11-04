@@ -125,7 +125,11 @@ export default function ProductDetailPage() {
                 </title>
             </Head>
             {contextHolder} {/*for notification*/}
-            <Modal title="Basic Modal" open={isModalOpen}
+            <Modal
+                centered
+                className='ModalShare'
+                title="Share to your friends!"
+                open={isModalOpen}
                 onOk={handleOk} onCancel={handleCancel}
                 footer={null}
             >
@@ -197,9 +201,7 @@ export default function ProductDetailPage() {
                                     >
                                         Share
 
-                                        <img className='
-                                        h-[1.5rem]
-                                        aspect-square'
+                                        <img className='h-[1.5rem] aspect-square'
                                             src={ShareIcon} alt="" />
                                     </button>
                                     <button

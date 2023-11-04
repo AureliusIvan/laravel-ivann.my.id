@@ -13,18 +13,14 @@ export default function ProductSection() {
     return (
         <SectionContainer>
             <div
-                className='bg-[#F9F5F2]
-                bg-opacity-10
-                flex p-[1rem] md:p-[2rem]
-                flex-col'
+                className='flex p-[1rem] md:p-[2rem] flex-col'
             >
                 <div
                     className='flex items-center justify-between w-full'
                 >
                     <h1
-                        className='text-[1.5rem] md:text-[2rem] font-[700] text-left w-full
-                        text-white
-                        '
+                        className='text-[1.5rem] md:text-[2rem] font-[700] w-full
+                        text-white text-center md:text-left'
                     >
                         Discover my posts
                     </h1>
@@ -33,8 +29,8 @@ export default function ProductSection() {
                     >
                         <span
                             className='flex items-center justify-center gap-2.5
-                            font-[700] text-[1.5rem] text-primaryBlack whitespace-nowrap
-                            '
+                            font-[700] text-[1.2rem] text-primaryBlack whitespace-nowrap
+                            px-[0rem] py-[0rem]'
                         >
                             View more
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -50,30 +46,6 @@ export default function ProductSection() {
                 >
                     {
                         PortofolioData?.map((item: any, index: any) => {
-                            // if (counter === 4) {
-                            //     counter = 0;
-                            // }
-                            // counter = counter + 1;
-                            // if (counter >= 3) {
-                            //     return (
-                            //         <ProductCard
-                            //             ProductData={item}
-                            //             key={index}
-                            //             width={"60%"}
-                            //             height='23.5rem'
-                            //         />
-                            //     )
-                            // } else {
-                            //     return (
-                            //         <ProductCard
-                            //             ProductData={item}
-                            //             key={index}
-                            //             width={"40%"}
-                            //             height='23.5rem'
-
-                            //         />
-                            //     )
-                            // }
                             return (
                                 <ProductCard
                                     ProductData={item}

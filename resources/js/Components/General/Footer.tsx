@@ -8,7 +8,7 @@ export default function Footer() {
     const [companyData, setCompanyData] = React.useState<any>(pageInfo?.props?.companyData);
     return (
         <footer className="w-full bg-primary
-            justify-start items-center gap-[2rem] md:gap-[5rem] flex flex-col
+            justify-start items-center gap-[2rem] md:gap-[2rem] flex flex-col
             p-boxS
             ">
             <div
@@ -21,7 +21,9 @@ export default function Footer() {
                 </svg>
             </div>
 
+
             <div className="flex-col justify-start items-center gap-5 flex">
+                <ApplicationLogo />
                 <div className="text-black text-[1.25rem] font-[500] text-white">Our social media</div>
                 <div className="md:justify-start md:items-start md:gap-4 xl:inline-flex
                 grid grid-cols-1 w-full max-w-[20rem]
@@ -47,7 +49,7 @@ export default function Footer() {
             <div className="flex flex-col justify-start items-center gap-5 px-boxS">
                 <div className="w-full text-center"><span
                     className='text-white text-[0.95rem] md:text-[1.25rem] font-[700] '
-                >© 2019 - 2023 {companyData.company_name}.</span><span
+                >© 2023 Aurelius Ivan Wijaya.</span><span
                     className='text-white text-[0.95rem] md:text-[1.25rem] font-[400]'
                 > All rights reserved</span></div>
                 <div className="text-[#B7B7B7] text-base font-normal text-center text-[0.725rem] md:text-[1.15rem] px-boxS">This website is managed by {companyData.company_name}
