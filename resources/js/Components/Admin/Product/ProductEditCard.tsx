@@ -37,7 +37,7 @@ export default function ProductEditCard(ProductData: any) {
     function handleSubmit(e: any) {
         e.preventDefault()
         console.log("Update Data", data)
-        router.post(`/admin/portofolio/${data.id}`, data, {
+        router.post(`/admin/post/${data.id}`, data, {
             forceFormData: true,
         })
     }
@@ -48,7 +48,7 @@ export default function ProductEditCard(ProductData: any) {
     function handleDelete(e: any) {
         e.preventDefault()
         console.log(data)
-        router.delete(`/admin/portofolio/${data.id}`, {
+        router.delete(`/admin/post/${data.id}`, {
             method: 'delete',
         })
     }
@@ -70,19 +70,28 @@ export default function ProductEditCard(ProductData: any) {
     return (
         <>
             <button
-                className='bg-white overflow-hidden sm:rounded-lg p-boxS flex flex-col gap-2 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] hover:filter hover:brightness-50 transition duration-300'
+                className=' 
+                bg-white overflow-hidden sm:rounded-lg p-boxS flex flex-row gap-2 
+                shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] 
+                hover:filter hover:brightness-50 transition duration-300'
                 onClick={handleOpenModal}
             >
                 <img
                     src={ProductData.image}
                     alt={ProductData.title}
-                    className='rounded-xl'
+                    className='rounded-xl w-[7rem]
+                    h-[7rem]
+                    object-cover'
                 />
-                <h1
-                    className='font-poppins text-[2rem] font-normal text-primaryBlack text-opacity-75'
+                <div
+                    className='flex flex-col justify-center items-start gap-1 w-full h-full p-[1rem]'
                 >
-                    {ProductData.title}
-                </h1>
+                    <h1
+                        className='font-poppins text-[1.5rem] text-primaryBlack text-opacity-75 font-[700]'
+                    >
+                        {ProductData.title}
+                    </h1>
+                </div>
             </button>
             {/* Modal Edit */}
             <div

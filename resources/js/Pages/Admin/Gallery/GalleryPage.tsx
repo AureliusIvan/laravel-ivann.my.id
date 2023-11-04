@@ -41,12 +41,37 @@ const EditGalleryCard = (image: any) => {
     return (
         <div
             className='items-center justify-center
-            bg-gray-200 rounded-lg shadow-xl p-boxS m-[2rem]'
+            bg-gray-200 rounded-lg shadow-xl p-boxS 
+            flex flex-col gap-2
+            h-[20rem]
+            w-[20rem]
+            '
         >
-            <div>
-                <img src={image.url} alt={image.title}
-                    className='w-1/2 h-1/2'
-                />
+            <img src={image.url} alt={image.title}
+            />
+            {/* url */}
+            <div
+                className='flex flex-col gap-2'
+            >
+                <p
+                    className='text-sm'
+                >
+                    {image.url}
+                </p>
+                <div
+                    className='flex flex-row gap-2'
+                >
+                    <button
+                        className='bg-green text-white p-boxS rounded-lg'
+                    >
+                        Edit
+                    </button>
+                    <button
+                        className='bg-red text-white p-boxS rounded-lg'
+                    >
+                        Delete
+                    </button>
+                </div>
             </div>
         </div>
     )

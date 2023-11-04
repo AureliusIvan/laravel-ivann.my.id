@@ -56,8 +56,9 @@ const Preview = ({ html }: any) => {
             }),
             TiptapLink.configure({
                 HTMLAttributes: {
-                    class: 'link',
+                    class: 'link'
                 },
+
                 openOnClick: false,
             }),
         ]

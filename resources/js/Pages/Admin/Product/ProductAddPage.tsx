@@ -8,26 +8,6 @@ import * as Yup from 'yup';
 import InputLabel from '@/Components/InputLabel';
 import Button from '@/Components/General/Button';
 import { useState, useEffect } from 'react';
-// // MDX Editor
-// import '@mdxeditor/editor/style.css'
-// import { MDXEditor } from '@mdxeditor/editor/MDXEditor'
-// import { UndoRedo } from '@mdxeditor/editor/plugins/toolbar/components/UndoRedo'
-// import { BoldItalicUnderlineToggles } from '@mdxeditor/editor/plugins/toolbar/components/BoldItalicUnderlineToggles'
-// import { toolbarPlugin } from '@mdxeditor/editor/plugins/toolbar'
-// import {
-
-//     BlockTypeSelect,
-//     ButtonWithTooltip,
-//     CodeToggle, CreateLink, InsertImage, InsertTable, ListsToggle, Separator, ToMarkdownOptions, codeBlockPlugin, corePlugin, imagePlugin, linkDialogPlugin, tablePlugin
-// } from '@mdxeditor/editor';
-// import { linkPlugin } from '@mdxeditor/editor/plugins/link';
-// import { listsPlugin } from '@mdxeditor/editor/plugins/lists';
-// import { MDXProvider } from '@mdx-js/react';
-// import ReactMarkdown from 'react-markdown';
-// import { BlockTypeSelect } from '@mdxeditor/editor/plugins/toolbar/components/BlockTypeSelect';
-// Tiptap
-import { EditorProvider, FloatingMenu, BubbleMenu } from '@tiptap/react'
-import StarterKit from '@tiptap/starter-kit'
 
 // Assets 
 import BackIcon from '@/Assets/Icon/back-icon.svg'
@@ -40,7 +20,7 @@ type imagesType = {
 
 function goBack(e: any) {
     e.preventDefault();
-    router.visit('/admin/portofolio')
+    router.visit('/admin/post')
 }
 
 export default function ProductAddPage(ProductData: any) {
@@ -78,7 +58,7 @@ export default function ProductAddPage(ProductData: any) {
 
     function handleSubmit(e: any) {
         e.preventDefault()
-        router.post(`/admin/portofolio`, data, {
+        router.post(`/admin/post`, data, {
             forceFormData: true,
         })
     }
@@ -90,7 +70,7 @@ export default function ProductAddPage(ProductData: any) {
                 className=' bg-white overflow-hidden sm:rounded-lg p-boxMd'
             >
                 <form
-                    className='flex flex-col gap-[1rem]'
+                    className='flex flex-col gap-[1rem] text-primaryBlack'
                 >
                     <div
                         className='flex flex-row justify-start items-center'

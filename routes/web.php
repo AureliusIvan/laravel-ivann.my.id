@@ -77,7 +77,6 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('/admin/post/{id}', [ProductController::class, 'UpdateProduct'])->name('admin.product.update');
     Route::delete('/admin/post/{id}', [ProductController::class, 'DeleteProduct'])->name('admin.product.delete');
     Route::post('/admin/post', [ProductController::class, 'AddProduct'])->name('admin.product.add');
-
     // GALLERY
     Route::get('/admin/gallery', [GalleryController::class, 'AdminPage'])->name('admin.gallery');
 

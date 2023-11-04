@@ -28,6 +28,12 @@ createInertiaApp({
                 theme={{
                     algorithm: darkAlgorithm,
                 }}
+                input={{
+                    autoComplete: 'off',
+                    style: {
+                        color: 'black',
+                    },
+                }}
             >
                 <ApolloProvider client={client}>
                     <App {...props} />
@@ -39,5 +45,5 @@ createInertiaApp({
         //make gradient progress bar
         color: '#ff69b4',
     },
-    
+
 });

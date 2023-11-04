@@ -10,9 +10,7 @@ import SectionContainer from '@/Components/General/SectionContainer'
 // import ProductEditCard from '@/Components/Admin/Product/ProductEditCard'
 
 export default function ProductPage({ auth, ProductData }: PageProps<{ ProductData: any }>) {
-    useEffect(() => {
-        console.log(ProductData)
-    }, [])
+
 
     return (
         <AdminLayout>
@@ -46,7 +44,7 @@ export default function ProductPage({ auth, ProductData }: PageProps<{ ProductDa
                 className='w-full flex flex-col justify-center items-center gap-3 relative p-boxS'
             >
                 <Link
-                    href={route('admin.portofolio.addpage')}
+                    href={route('admin.post.addpage')}
                     className='text-white font-bold bg-green 
                     px-boxMd py-boxS rounded-lg fixed bottom-[3rem] right-[2rem]
                     hover:bg-opacity-50'
@@ -55,8 +53,8 @@ export default function ProductPage({ auth, ProductData }: PageProps<{ ProductDa
                 </Link>
                 <div
                     className='justify-center gap-3
-                        grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4
-                        '
+                    grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 
+                    '
                 >
                     {
                         ProductData.length > 0 ?
