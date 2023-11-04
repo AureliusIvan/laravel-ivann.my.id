@@ -16,12 +16,6 @@ export default function Guest({ header, footer = true, children }: PropsWithChil
     const companyData: any = usePage().props.companyData; //get page info
     return (
         <>
-            <Head>
-                <title>{companyData?.company_name}</title>
-                <meta name="description" content="" />
-                <link rel="icon" href={companyData?.company_logo} />
-            </Head>
-
             <div
                 className="
                     flex justify-between  h-[4.5rem] sm:h-[4.25rem]
@@ -30,6 +24,7 @@ export default function Guest({ header, footer = true, children }: PropsWithChil
                     border-b-[0.01rem] border-solid border-transparentWhite"
             >
                 {/* Logo */}
+
                 <div className="flex items-center">
                     <Link href="/"
                     >
@@ -86,36 +81,44 @@ export default function Guest({ header, footer = true, children }: PropsWithChil
                         </svg>
                     </button>
                 </div>
-                <div className={(showingNavigationDropdown ? 'translate-y-0 opacity-[100%]' : 'translate-y-[-200%] opacity-[0%]') + 'md:hidden fixed top-[4.3rem] sm:top-[4.25rem] left-0 right-0 pb-[1rem] px-[1rem] bg-primary w-full z-50 flex flex-col items-center text-center isolate gap-[0.5rem] transform-gpu transition-all duration-500 ease-in-out origin-top'}>
-                    {
-                        Route.map((item, index) => (
-                            <NavLink
-                                key={index} href={route(item.route)} active={route().current(item.route)}>
-                                {item.name}
-                            </NavLink>
-                        ))
-                    }
-                    <a
-                        href={`mailto:${companyData?.company_email}`}
-                        target='_blank'
-                        className='
-                        border-[0.1rem] border-secondary w-full
-                        bg-none text-[#F9F5F2] font-[600] px-[2rem] py-[0.5rem] rounded-[0.75rem]
-                                hover:bg-secondary transition duration-300 ease-in-out text-[1.25rem]'
-                    >
-                        Contact
-                    </a>
-                </div>
+
+
+
             </div>
             {/* safe zone */}
             <div
                 className='opacity-0 h-[4.5rem] sm:h-[4.25rem] w-full'
             />
+
+            <div className={(showingNavigationDropdown ? 'translate-y-[0rem] opacity-[100%]' : 'translate-y-[-200%] opacity-[0%]') +
+                `md:hidden fixed top-[4.3rem] sm:top-[4.25rem] left-0 right-0 pt-[1rem] px-[1rem] 
+                bg-primary w-full z-[10] flex flex-col items-center text-center isolate gap-[0.5rem] transform-gpu transition-all duration-500 ease-in-out origin-top`}>
+                {
+                    Route.map((item, index) => (
+                        <NavLink
+                            key={index} href={route(item.route)} active={route().current(item.route)}>
+                            {item.name}
+                        </NavLink>
+                    ))
+                }
+                <a
+                    href={`mailto:${companyData?.company_email}`}
+                    target='_blank'
+                    className='
+                    px-[2rem] py-[0.5rem] rounded-[0.5rem] w-full font-poppins font-[500] text-[1rem] 
+                    flex justify-center items-center text-center
+                     text-white 
+                    border-secondary border-[0.1rem] gap-[0.5rem]
+                    shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] 
+                    '
+                >
+                    Contact
+                </a>
+            </div>
             <main
-                className='bg-primary
-                
+                className={`bg-primary
                 isolate
-                '
+                `}
             >
                 <div
                     className='isolate layout-container'
