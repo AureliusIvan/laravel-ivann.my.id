@@ -33,10 +33,12 @@ class ProductController extends Controller
             return Product::where('slug', $slug)->first();
         });
 
+        // forget cache
+
         if (!$ProductData) {
             return inertia('ErrorPage');
         }
-        
+
 
         return inertia('Product/ProductDetailPage', [
             'ProductData' => $ProductData,
@@ -62,10 +64,11 @@ class ProductController extends Controller
 
     public function UpdateProduct(Request $request, Product $product, $id)
     {
-        Cache::forget('products');
+
         // dd($request);
         try {
             DB::beginTransaction();
+            Cache::forget('ProductData:' . $request->slug);
             $product = Product::where('id', $request->id)->first();
             $image_name = null;
             if ($request->hasFile('image')) {
