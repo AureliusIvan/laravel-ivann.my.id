@@ -5,7 +5,6 @@ import { Skeleton } from 'antd';
 import React, { useEffect } from 'react'
 
 export default function ProductSection() {
-    let counter = 1;
     const PortofolioData: any = usePage().props.ProductData
     useEffect(() => {
         console.log("Porto:", PortofolioData.ProductData)
@@ -13,6 +12,7 @@ export default function ProductSection() {
     return (
         <SectionContainer>
             <div
+                
                 className='flex p-[1rem] md:p-[2rem] flex-col'
             >
                 <div
@@ -25,7 +25,7 @@ export default function ProductSection() {
                         Discover my posts
                     </h1>
                     <Link className="btn bg-secondary hidden md:block"
-                        href='/portofolio'
+                        href='/post'
                     >
                         <span
                             className='flex items-center justify-center gap-2.5
@@ -59,7 +59,7 @@ export default function ProductSection() {
 
 
                 <Link className="btn bg-secondary block md:hidden mt-[1rem]"
-                    href='/portofolio'
+                    href='/posts'
                 >
                     <span
                         className='flex items-center justify-between gap-2.5
@@ -77,4 +77,3 @@ export default function ProductSection() {
         </SectionContainer>
     )
 }
-

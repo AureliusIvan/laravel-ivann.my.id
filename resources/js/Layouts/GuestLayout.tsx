@@ -113,12 +113,12 @@ export default function Guest({ header, footer = true, children }: PropsWithChil
             />
             <main
                 className='bg-primary
-                layout-container
+                
                 isolate
                 '
             >
                 <div
-                className='isolate'
+                    className='isolate layout-container'
                 >
                     {children}
                 </div>

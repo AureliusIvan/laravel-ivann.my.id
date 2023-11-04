@@ -3,12 +3,23 @@ import { Link } from '@inertiajs/react'
 import React, { useEffect } from 'react'
 import "./ProductCard.scss"
 import TagComponent from './TagComponent'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 export default function ProductCard({ ProductData, width, height }: { ProductData: any, width?: string, height?: string, rounded?: boolean }) {
 
     useEffect(() => {
         console.log(ProductData);
         console.log('img : ', ProductData.image);
+        AOS.init({
+            duration: 500,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+
+        });
     }, [])
     return (
         <>
@@ -16,11 +27,12 @@ export default function ProductCard({ ProductData, width, height }: { ProductDat
                 href={`/post/${ProductData.slug}`}
                 className='ProductCard'
                 style={{
-                    
+
                     isolation: 'isolate',
                     width: width,
                     height: height,
                 }}
+                data-aos="fade-up"
             >
                 <div
                     className='ProductCard__imageContainer'
@@ -42,7 +54,7 @@ export default function ProductCard({ ProductData, width, height }: { ProductDat
                         {ProductData.title}
                     </h1>
                     <h2
-                    className='ProductCard__createdAt'
+                        className='ProductCard__createdAt'
                     >
                         {ProductData.created_at}
                     </h2>

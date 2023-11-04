@@ -19,7 +19,7 @@ import "./HomePage.scss"
 
 export default function HomePage() {
     const page: any = usePage().props;
-    
+
     return (
         <>
             <Head>
@@ -42,12 +42,9 @@ export default function HomePage() {
                 <meta property="og:url" content="https://ivann.my.id/" />
             </Head>
             <Guest>
-                <div
-                >
-                    <HeroSection />
-                    <ProductSection />
-                    <CollaborateSection />
-                </div>
+                <HeroSection />
+                <ProductSection />
+                <CollaborateSection />
             </Guest>
         </>
     )

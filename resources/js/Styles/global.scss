@@ -43,6 +43,25 @@ body {
     color: $fontPrimaryColor;
     margin-bottom: 0px !important;
 
+    //set scrollbar like joshcomeau.com
+    scrollbar-width: thin;
+    scrollbar-color: $secondaryColor $primaryColor;
+
+    &::-webkit-scrollbar {
+        width: 0.5rem;
+
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgb(48, 48, 48);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $secondaryColor;
+        border-radius: 0.5rem;
+     
+    }
+
     ::selection {
         background: $secondaryColor;
         color: $fontSecondaryColor;

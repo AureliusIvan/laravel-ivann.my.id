@@ -42,7 +42,7 @@ export default function HeroSection() {
                     opacity-80 text-center p-boxS
                     max-w-[40rem]
                     '
-                >   
+                >
                     Welcome to {companyData.company_name} official website. {companyData.company_description} 🏠
                 </p>
                 <div
@@ -50,7 +50,7 @@ export default function HeroSection() {
                     max-w-[50rem]'
                 >
                     <Button
-                        href='/portofolio'
+                        href='/post'
                     >
                         Posts
                         <Porto />
@@ -99,10 +99,11 @@ const Button = ({ children, className = '', ...props }: InertiaLinkProps) => {
 
 const ButtonStyle = `
 px-[2rem] py-[0.5rem] rounded-[0.5rem] w-full font-poppins font-[500] text-[1rem]
-hover:bg-opacity-40 transition duration-300 ease-in-out
+transition duration-300 ease-in-out
 flex justify-center items-center text-center
 shadow-[0_20px_50px_rgba(8,_112,_184,_0.3)]
 text-white
 border-secondary border-[0.1rem] gap-[0.5rem]
 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]
+hover:bg-secondary
 `

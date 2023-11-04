@@ -2,6 +2,8 @@
     position: relative;
     z-index: 1;
     isolation: isolate;
+    opacity: 1 !important;
+    background-color: black !important;
 
     &::before {
         isolation: isolate;
@@ -12,11 +14,10 @@
         bottom: 0;
         left: 0;
         opacity: 0.4;
-        background-color: black !important;
         background: url('./Assets/pattern.svg') repeat;
         filter: invert(1);
         background-size: contain;
-        z-index: 0;
+        z-index: -1;
 
     }
 }

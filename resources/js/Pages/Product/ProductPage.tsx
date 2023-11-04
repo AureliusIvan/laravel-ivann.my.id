@@ -52,7 +52,7 @@ export default function ProductPage() {
                                 bg-gradient-to-r from-secondary via-secondary to-primaryPink text-transparent bg-clip-text animate-gradient bg-300%
                                 '
                             >
-                                My Posts
+                                My Posts 👻 
                             </h1>
 
                             <h2

@@ -14,8 +14,7 @@ export default function NavLink({ active = false, className = '', children, ...p
             >
                 <div
                     className={`${active ? 'opacity-1' : 'opacity-0'} bg-secondary h-[0.5rem] w-[0.5rem] rounded-full 
-                    absolute left-[-1rem] top-[0.5rem] transition duration-300 ease-in-out
-                    `}
+                    absolute left-[-1rem] top-[0.5rem] transition duration-300 ease-in-out`}
                 />
                 {children}
             </span>
