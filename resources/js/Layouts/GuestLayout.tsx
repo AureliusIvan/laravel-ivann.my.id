@@ -48,8 +48,7 @@ export default function Guest({ header, footer = true, children }: PropsWithChil
                         className='
                         border-[0.1rem] border-secondary
                         bg-none text-[#F9F5F2] font-[600] px-[1rem] py-[0.2rem] rounded-[0.75rem]
-                                hover:bg-secondary transition duration-300 ease-in-out text-[1.25rem]
-                                '
+                                hover:bg-secondary transition duration-300 ease-in-out text-[1.25rem]'
                     >
                         Contact
                     </a>

@@ -35,3 +35,4 @@ ln -s ../storage/app/public storage (on public dir)
 1. Send Email : https://www.youtube.com/watch?v=XywB2qtzSoM
 2. Middleware Auth : https://www.youtube.com/watch?v=vc4sXOdE4bQ
 3. Generate sitemap : https://learn2torials.com/a/generate-dynamic-sitemap-in-laravel
+4. Generate sitemap : https://laraveltuts.com/how-to-automatically-generate-an-xml-sitemap-in-laravel/

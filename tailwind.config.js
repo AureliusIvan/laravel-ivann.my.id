@@ -27,7 +27,7 @@ export default {
                 '300%': '300%',
             },
             animation: {
-                gradient: 'animatedgradient 1s ease infinite alternate',
+                gradient: 'animatedgradient 4s ease infinite alternate',
             },
         },
         colors: {

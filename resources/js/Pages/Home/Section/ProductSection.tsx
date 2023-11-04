@@ -59,7 +59,7 @@ export default function ProductSection() {
 
 
                 <Link className="btn bg-secondary block md:hidden mt-[1rem]"
-                    href='/posts'
+                    href='/post'
                 >
                     <span
                         className='flex items-center justify-between gap-2.5

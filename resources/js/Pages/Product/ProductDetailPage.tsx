@@ -162,10 +162,10 @@ export default function ProductDetailPage() {
                                         items-start min-h-screen p-boxS">
                             <div className="text-secondary flex flex-col gap-[1rem] w-full">
                                 <div className='flex w-full'>
-                                    <button
+                                    <Link
                                         className=' text-white flex flex-row justify-center items-center 
-                                    gap-[0.1rem]  hover:opacity-50'
-                                        onClick={() => window.history.back()}
+                                        gap-[0.1rem]  hover:opacity-50'
+                                        href='/post'
                                     >
                                         <img
                                             className='w-[1.7rem] h-[1.7rem]'
@@ -175,7 +175,7 @@ export default function ProductDetailPage() {
                                         >
                                             Back
                                         </div>
-                                    </button>
+                                    </Link>
                                 </div>
 
                                 <div

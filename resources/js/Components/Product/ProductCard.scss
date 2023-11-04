@@ -13,6 +13,7 @@
     padding: 1rem;
     border-radius: 0.5rem;
 
+
     @media screen and (max-width: 768px) {
         padding: 0.5rem;
         height: fit-content !important;
@@ -20,8 +21,8 @@
     }
 
     &:hover {
-        opacity: 0.8;
-        transition: all 0.1s ease-in-out;
+        opacity: 0.5 !important;
+        transition: all 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
 
     .ProductCard__imageContainer {
@@ -117,6 +118,8 @@
             align-items: center;
             gap: 0.5rem;
             height: 2rem;
+
+            
         }
 
 

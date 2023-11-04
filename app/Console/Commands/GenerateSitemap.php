@@ -3,8 +3,11 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Spatie\Sitemap\SitemapGenerator;
+use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
+
+use App\Models\Post;
+use App\Models\Product;
 
 class GenerateSitemap extends Command
 {
@@ -13,14 +16,14 @@ class GenerateSitemap extends Command
      *
      * @var string
      */
-    protected $signature = 'generate:sitemap';
+    protected $signature = 'sitemap:generate';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Generates a sitemap';
+    protected $description = 'Automatically Generate an XML Sitemap';
 
     /**
      * Execute the console command.
@@ -29,10 +32,16 @@ class GenerateSitemap extends Command
      */
     public function handle()
     {
-        // creates sitemap with all urls in your website
-        SitemapGenerator::create("https://localhost.com")
-            ->getSitemap()
-            ->add(Url::create('/')->setPriority(1))
-            ->writeToFile(public_path('sitemap.xml'));
+        $postsitmap = Sitemap::create();
+
+        Product::get()->each(function (Product $post) use ($postsitmap) {
+            $postsitmap->add(
+                Url::create("/post/{$post->slug}")
+                    ->setPriority(0.9)
+                    ->setChangeFrequency(Url::CHANGE_FREQUENCY_MONTHLY)
+            );
+        });
+
+        $postsitmap->writeToFile(public_path('sitemap.xml'));
     }
 }
