@@ -33,7 +33,8 @@ export default function ProductPage() {
                 <meta property="og:image" content={WebscreenImage} />
                 <meta property="og:url" content="https://ivann.my.id/" />
             </Head>
-            <Guest>
+            <Guest
+            >
                 <SectionContainer
                     className='w-full h-fit'
                 >
@@ -52,7 +53,7 @@ export default function ProductPage() {
                                 bg-gradient-to-r from-secondary via-secondary to-primaryPink text-transparent bg-clip-text animate-gradient bg-300%
                                 '
                             >
-                                My Posts 👻 
+                                My Posts 👻
                             </h1>
 
                             <h2

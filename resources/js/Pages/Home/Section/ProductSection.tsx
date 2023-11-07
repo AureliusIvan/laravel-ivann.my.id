@@ -42,7 +42,7 @@ export default function ProductSection() {
                     </Link>
                 </div>
                 <div
-                    className='flex  flex-wrap mt-[1rem] md:mt-[2rem] justify-between overflow-hidden gap-[1rem]'
+                    className='flex  flex-wrap mt-[1rem] md:mt-[2rem] justify-between overflow-visible gap-[1rem]'
                 >
                     {
                         PortofolioData?.map((item: any, index: any) => {

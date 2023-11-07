@@ -156,8 +156,7 @@ export default function ProductDetailPage() {
                     justify-center items-center w-full h-full'
                 >
                     <div
-                        className='xl:w-[50rem]
-                        '
+                        className='xl:w-[50rem]'
                     >
                         <div className="flex flex-col md:flex-row justify-start 
                                         items-start min-h-screen p-boxS">
@@ -202,29 +201,24 @@ export default function ProductDetailPage() {
                                     className='flex gap-2'>
                                     {/* Share Button */}
                                     <button
-                                        className='btn bg-secondary text-primaryBlack font-[700]
-                                    flex gap-[0.5rem]
-                                    justify-center items-center'
+                                        className={` w-fit ${ButtonStyle}`}
                                         onClick={showModal}
                                     >
                                         Share
 
-                                        <img className='h-[1.5rem] aspect-square'
+                                        <img className='h-[1.5rem] aspect-square invert-[1]'
                                             src={ShareIcon} alt="" />
                                     </button>
                                     <button
-                                        className='btn bg-secondary text-primaryBlack font-[700]
-                                    flex gap-[0.5rem]
-                                    justify-center items-center'
+                                        className={` w-fit ${ButtonStyle}`}
                                         onClick={() => {
                                             navigator.clipboard.writeText(window.location.href);
                                             openNotificationWithIcon('success')
                                         }}
                                     >
                                         Copy Link
-
                                         <img className='
-                                        h-[1.5rem]
+                                        h-[1.5rem] invert-[1]
                                         aspect-square'
                                             src={CopyIcon} alt="" />
 
@@ -290,3 +284,16 @@ const ShareCard = ({ icon, link, title }: { icon: string, link: string, title?: 
         </a>
     )
 }
+
+
+
+const ButtonStyle = `
+px-[2rem] py-[0.5rem] rounded-[0.5rem]  font-poppins font-[500] text-[1rem]
+transition duration-300 ease-in-out
+flex justify-center items-center text-center
+shadow-[0_20px_50px_rgba(8,_112,_184,_0.3)]
+text-white
+border-secondary border-[0.1rem] gap-[0.5rem]
+hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]
+hover:bg-secondary
+`

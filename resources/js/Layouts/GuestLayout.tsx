@@ -116,8 +116,7 @@ export default function Guest({ header, footer = true, children }: PropsWithChil
             </div>
             <main
                 className={`bg-primary
-                isolate
-                `}
+                isolate`}
             >
                 <div
                     className='isolate layout-container'
@@ -126,7 +125,9 @@ export default function Guest({ header, footer = true, children }: PropsWithChil
                 </div>
                 <button
                     onClick={() => window.scrollTo(0, 0)}
-                    className='fixed bottom-[2rem] right-[2rem] bg-primaryBlack text-[#F9F5F2] font-[600] px-[0.75rem] py-[0.5rem] rounded-[0.5rem] hover:opacity-70 transition duration-300 ease-in-out text-[1.25rem] bg-opacity-20'
+                    className='
+                    z-[10]
+                    fixed bottom-[2rem] right-[2rem] bg-primaryBlack text-[#F9F5F2] font-[600] px-[0.75rem] py-[0.5rem] rounded-[0.5rem] hover:opacity-70 transition duration-300 ease-in-out text-[1.25rem] bg-opacity-20'
                 >
                     <svg
                         className='w-[ rem] h-[2rem]'

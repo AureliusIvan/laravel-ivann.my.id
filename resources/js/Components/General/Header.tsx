@@ -17,19 +17,20 @@ export default function Header({ title, image, createdAt }: Props) {
                     my-[2rem]
                     relative isolate overflow-hidden'
         >
-                <h1
-                    className='text-[#FFFFFF] text-[1.5rem] md:text-[3.75rem] font-[700] z-10 w-full text-center'
-                >
-                    {title}
-                </h1>
+            <h1
+                className='text-[#FFFFFF] text-[1.5rem]
+                    md:text-[3.75rem] font-[700] z-10 w-full text-center'
+            >
+                {title}
+            </h1>
 
-                <h2
-                    className='font-poppins text-center text-[1rem] 
+            <h2
+                className='font-poppins text-center text-[1rem] 
                                 font-[400] text-[rgba(255,255,255,0.7)]'
-                >
-                    {createdAt}
-                </h2>
-            
+            >
+                {createdAt}
+            </h2>
+
             <div
                 className='w-[70%] max-w-[8rem] h-[0.2rem] rounded-sm bg-white'
             />
