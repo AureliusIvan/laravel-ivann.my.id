@@ -23,3 +23,11 @@ yarn-error.log
 
 
 .env.local
+
+
+vite.config.js.*
+composer.lock
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+.pnpm-store
