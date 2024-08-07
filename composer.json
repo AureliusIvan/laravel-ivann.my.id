@@ -18,7 +18,7 @@
         "nuwave/lighthouse": "^6.16",
         "predis/predis": "^2.2",
         "ramsey/uuid": "^4.7",
-        "spatie/laravel-sitemap": "^6.4",
+        "spatie/laravel-sitemap": "^7.0",
         "tightenco/ziggy": "^2.0"
     },
     "require-dev": {
