@@ -33,7 +33,7 @@
         "@mdx-js/react": "^3.0.1",
         "@mdxeditor/editor": "^3.10.1",
         "@stitches/react": "^1.2.8",
-        "@tiptap/core": "^2.5.8",
+        "@tiptap/core": "^3.30.4",
         "@tiptap/extension-color": "^2.5.8",
         "@tiptap/extension-highlight": "^2.5.8",
         "@tiptap/extension-horizontal-rule": "^2.5.8",
